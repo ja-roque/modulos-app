@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { TopbannerComponent } from './topbanner/topbanner.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { LandingScreenComponent } from './landing-screen/landing-screen.component';
+import { UserScreenComponent } from './user-screen/user-screen.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TopbannerComponent,
-    LandingScreenComponent
+    LandingScreenComponent,
+    UserScreenComponent
   ],
   imports: [
     BrowserModule,
