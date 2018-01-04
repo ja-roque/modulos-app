@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-landing-screen',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingScreenComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
   }
+
+	loginFormSubmit(loginForm: any): void {
+		$('#loginLoading').removeAttr('hidden');
+		console.log(loginForm);
+
+		let username = loginForm.form.value.username
+		let password = loginForm.form.value.password
+
+		this.authService.log_in(username, password);
+	}
 
 }

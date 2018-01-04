@@ -2,7 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { NgModule } from '@angular/core';
 import { AlertModule } from 'ngx-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
+import { AuthService } from './auth.service';
 
 import { AppComponent } from './app.component';
 import { TopbannerComponent } from './topbanner/topbanner.component';
@@ -22,9 +24,11 @@ import { UserScreenComponent } from './user-screen/user-screen.component';
     BrowserModule,
     FormsModule,
     AlertModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+  AuthService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -68,6 +68,13 @@
     z-index: 3;
 }
 
+.centeredLoginLoading {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translateX(-50%);
+}
+
 .startButton {
 	font-size: 200%;
 }
