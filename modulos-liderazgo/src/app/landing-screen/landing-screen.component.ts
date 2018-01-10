@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 
+declare var jquery:any;
+declare var $ :any;
 @Component({
   selector: 'app-landing-screen',
   templateUrl: './landing-screen.component.html',
