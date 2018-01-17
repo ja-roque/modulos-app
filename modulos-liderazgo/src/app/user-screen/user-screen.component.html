@@ -41,7 +41,7 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-9">
+  <div class="col-sm-9" [ngSwitch]='currentStep'>
     <body>
       <div class="animateme">
         <ul class="bg-bubbles">
@@ -61,21 +61,8 @@
         </ul>
       </div>
       
-      <div class="reveal">
-        <div class="slides">
-          <section><h1 style="color: white;">Sesion 1</h1></section>
-          <section><img style="width: 100%" data-src="../../assets/sesiones/sesion1.jpg/slide1.jpg"></section>
-          <section><img style="width: 100%" data-src="../../assets/sesiones/sesion1.jpg/slide2.jpg"></section>
-          <section><img style="width: 100%" data-src="../../assets/sesiones/sesion1.jpg/slide3.jpg"></section>
-          <section><img style="width: 100%" data-src="../../assets/sesiones/sesion1.jpg/slide4.jpg"></section>
-          
-        </div>
-      </div>
-
-
-
-
-
+      <app-session-slideshow *ngSwitchCase="2" [isOn]='isOn'></app-session-slideshow>
+      <app-session-doc *ngSwitchCase="1" ></app-session-doc>      
 
     </body>
   </div>

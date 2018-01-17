@@ -1,0 +1,15 @@
+<div class="reveal">
+	<div class="slides">
+		<section><h1 style="color: white;">Lectura</h1></section>
+		<section><h2 style="color: white;">{{doc.title}}</h2></section>		
+		
+		<section *ngFor="let slide of doc.slides">	      	
+			<section>
+				<p style="color: white" class="fragment fade-up" *ngFor="let frag of slide">
+					{{frag}}		      	
+		    	</p>
+		  	</section>
+	    </section>		
+
+	</div>
+</div>

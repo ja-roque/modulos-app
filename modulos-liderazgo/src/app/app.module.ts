@@ -5,12 +5,21 @@ import { AlertModule } from 'ngx-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AuthService } from './auth.service';
+import { DocfetchService } from './docfetch.service';
 
 import { AppComponent } from './app.component';
 import { TopbannerComponent } from './topbanner/topbanner.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { LandingScreenComponent } from './landing-screen/landing-screen.component';
 import { UserScreenComponent } from './user-screen/user-screen.component';
+import { SessionSlideshowComponent} from './session-slideshow/session-slideshow.component';
+import { SessionDocComponent } from './session-doc/session-doc.component';
+import { SessionVideoComponent } from './session-video/session-video.component';
+import { SessionExamComponent } from './session-exam/session-exam.component';
+
+
+import * as axios from 'axios'
+
 
 
 @NgModule({
@@ -18,7 +27,11 @@ import { UserScreenComponent } from './user-screen/user-screen.component';
     AppComponent,
     TopbannerComponent,
     LandingScreenComponent,
-    UserScreenComponent
+    UserScreenComponent,
+    SessionSlideshowComponent,
+    SessionDocComponent,
+    SessionVideoComponent,
+    SessionExamComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +41,7 @@ import { UserScreenComponent } from './user-screen/user-screen.component';
     HttpClientModule
   ],
   providers: [
-  AuthService,],
+  AuthService, DocfetchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
