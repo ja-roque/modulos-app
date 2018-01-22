@@ -1,4 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
+import { PresentationfetchService } from '../presentationfetch.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router, Resolve, RouterStateSnapshot,
+         ActivatedRouteSnapshot } from '@angular/router';
+
 declare var Reveal:any;
 
 @Component({
@@ -9,126 +14,141 @@ declare var Reveal:any;
 export class SessionSlideshowComponent implements OnInit {
 
 
-  constructor() { }
+  constructor(private pptFetch: PresentationfetchService, private router: Router) { }
 
   private _flag;
-
+  ppt: {}
+  modnum = 1
 
   @Input() 
 	set isOn(flag: boolean) {
 	    this._flag = flag;
 	  }
 	  get isOn(): boolean { return this._flag; }
+
+	@Input()  currentStep: number | string;
+	
+	@Output() stepChange = new EventEmitter<number>();
 	
 
 
-  ngOnInit() {
-  	
-  	console.log(this._flag);
-  	Reveal.initialize({// The "normal" size of the presentation, aspect ratio will be preserved
-			// when the presentation is scaled to fit different resolutions
-			width: 960,
-			height: 700,
+  getPpts(modNum): any {
+	  return this.pptFetch.getPresentation(modNum);
+	}  
 
-			// Factor of the display size that should remain empty around the content
-			margin: 0.1,
+	ngOnInit() {
+  		this.getPpts(this.modnum).subscribe(data => {      
+			this.ppt = data			
+			console.log(this.ppt)
+			this.initReveal( this.router);
+		});  	
+  	}
 
-			// Bounds for smallest/largest possible scale to apply to content
-			minScale: 0.2,
-			maxScale: 1.0,
+	initReveal(router): void {
+	// 	Reveal.initialize({// The "normal" size of the presentation, aspect ratio will be preserved
+	// 		// when the presentation is scaled to fit different resolutions
+	// 		width: 960,
+	// 		height: 700,
 
-			// Display controls in the bottom right corner
-			controls: true,		
-			controlsTutorial: true,
+	// 		// Factor of the display size that should remain empty around the content
+	// 		margin: 0.1,
 
-			// Display a presentation progress bar
-			progress: true,
+	// 		// Bounds for smallest/largest possible scale to apply to content
+	// 		minScale: 0.2,
+	// 		maxScale: 1.0,
 
-			// Display the page number of the current slide
-			slideNumber: false,
+	// 		// Display controls in the bottom right corner
+	// 		controls: true,		
+	// 		controlsTutorial: true,
 
-			// Push each slide change to the browser history
-			history: false,
+	// 		// Display a presentation progress bar
+	// 		progress: true,
 
-			// Enable keyboard shortcuts for navigation
-			keyboard: true,
+	// 		// Display the page number of the current slide
+	// 		slideNumber: false,
 
-			// Enable the slide overview mode
-			overview: true,
+	// 		// Push each slide change to the browser history
+	// 		history: false,
 
-			// Vertical centering of slides
-			center: true,
+	// 		// Enable keyboard shortcuts for navigation
+	// 		keyboard: true,
 
-			// Enables touch navigation on devices with touch input
-			touch: true,
+	// 		// Enable the slide overview mode
+	// 		overview: true,
 
-			// Loop the presentation
-			loop: false,
+	// 		// Vertical centering of slides
+	// 		center: true,
 
-			// Change the presentation direction to be RTL
-			rtl: false,
+	// 		// Enables touch navigation on devices with touch input
+	// 		touch: true,
 
-			// Turns fragments on and off globally
-			fragments: true,
+	// 		// Loop the presentation
+	// 		loop: false,
 
-			// Flags if the presentation is running in an embedded mode,
-			// i.e. contained within a limited portion of the screen
-			embedded: false,
+	// 		// Change the presentation direction to be RTL
+	// 		rtl: false,
 
-			// Number of milliseconds between automatically proceeding to the
-			// next slide, disabled when set to 0, this value can be overwritten
-			// by using a data-autoslide attribute on your slides
-			autoSlide: 0,
+	// 		// Turns fragments on and off globally
+	// 		fragments: true,
 
-			// Stop auto-sliding after user input
-			autoSlideStoppable: true,
+	// 		// Flags if the presentation is running in an embedded mode,
+	// 		// i.e. contained within a limited portion of the screen
+	// 		embedded: false,
 
-			// Enable slide navigation via mouse wheel
-			mouseWheel: false,
+	// 		// Number of milliseconds between automatically proceeding to the
+	// 		// next slide, disabled when set to 0, this value can be overwritten
+	// 		// by using a data-autoslide attribute on your slides
+	// 		autoSlide: 0,
 
-			// Apply a 3D roll to links on hover
-			rollingLinks: false,
+	// 		// Stop auto-sliding after user input
+	// 		autoSlideStoppable: true,
 
-			// Hides the address bar on mobile devices
-			hideAddressBar: true,
+	// 		// Enable slide navigation via mouse wheel
+	// 		mouseWheel: false,
 
-			// Opens links in an iframe preview overlay
-			previewLinks: false,
+	// 		// Apply a 3D roll to links on hover
+	// 		rollingLinks: false,
 
-			// Focuses body when page changes visiblity to ensure keyboard shortcuts work
-			focusBodyOnPageVisiblityChange: true,
+	// 		// Hides the address bar on mobile devices
+	// 		hideAddressBar: true,
 
-			// Theme (see /css/theme)
-			theme: "black",
+	// 		// Opens links in an iframe preview overlay
+	// 		previewLinks: false,
 
-			// Transition style
-			transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
+	// 		// Focuses body when page changes visiblity to ensure keyboard shortcuts work
+	// 		focusBodyOnPageVisiblityChange: true,
 
-			// Transition speed
-			transitionSpeed: 'default', // default/fast/slow
+	// 		// Theme (see /css/theme)
+	// 		theme: "black",
 
-			// Transition style for full page slide backgrounds
-			backgroundTransition: 'default', // default/linear/none
+	// 		// Transition style
+	// 		transition: 'default', // default/cube/page/concave/zoom/linear/fade/none
 
-			// Parallax background image
-			parallaxBackgroundImage: '', // CSS syntax, e.g. "a.jpg"
+	// 		// Transition speed
+	// 		transitionSpeed: 'default', // default/fast/slow
 
-			// Parallax background size
-			parallaxBackgroundSize: '', // CSS syntax, e.g. "3000px 2000px"
+	// 		// Transition style for full page slide backgrounds
+	// 		backgroundTransition: 'default', // default/linear/none
 
-			// Number of slides away from the current that are visible
-			viewDistance: 3,
-	});
+	// 		// Parallax background image
+	// 		parallaxBackgroundImage: '', // CSS syntax, e.g. "a.jpg"
 
-  	Reveal.addEventListener( 'slidechanged', function( event ) {
+	// 		// Parallax background size
+	// 		parallaxBackgroundSize: '', // CSS syntax, e.g. "3000px 2000px"
+
+	// 		// Number of slides away from the current that are visible
+	// 		viewDistance: 3,
+	// });
+
+	Reveal.addEventListener( 'slidechanged', function( event ) {
 	// event.previousSlide, event.currentSlide, event.indexh, event.indexv
 		if (Reveal.isLastSlide()) {
 			// code...
-			
+			router.navigate(['/user/doc']);			
 		}
 		
 	});
 
-  }
+	}
 
 }

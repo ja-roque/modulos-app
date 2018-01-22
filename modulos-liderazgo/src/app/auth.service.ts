@@ -24,6 +24,7 @@ export class AuthService {
 	        success: function(data) {
 	          console.log(data)
 	          window.location.href = '/user';
+	          localStorage.setItem('jwtToken', data.token);
 	        },
 	        error: function(data){
 	        	$('#loginLoading').attr('hidden', true);

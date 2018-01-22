@@ -6,6 +6,11 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AuthService } from './auth.service';
 import { DocfetchService } from './docfetch.service';
+import { PresentationfetchService } from './presentationfetch.service';
+import { ModulefetchService } from './modulefetch.service';
+
+import { DocResolve } from './doc-resolve';
+
 
 import { AppComponent } from './app.component';
 import { TopbannerComponent } from './topbanner/topbanner.component';
@@ -17,10 +22,7 @@ import { SessionDocComponent } from './session-doc/session-doc.component';
 import { SessionVideoComponent } from './session-video/session-video.component';
 import { SessionExamComponent } from './session-exam/session-exam.component';
 
-
 import * as axios from 'axios'
-
-
 
 @NgModule({
   declarations: [
@@ -41,7 +43,7 @@ import * as axios from 'axios'
     HttpClientModule
   ],
   providers: [
-  AuthService, DocfetchService],
+  AuthService, DocfetchService, PresentationfetchService, ModulefetchService, DocResolve],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

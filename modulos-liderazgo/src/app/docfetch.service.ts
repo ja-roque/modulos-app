@@ -14,7 +14,7 @@ export class DocfetchService {
    response: {}
 
   getDoc (number) {
-  	var docUrl = 'http://localhost:9000/getdoc?id=' + number;  // URL to web api
+  	var docUrl = 'http://45.55.251.183/getdoc?id=' + number;  // URL to web api
   	return this.http.get(docUrl)
   }
 }

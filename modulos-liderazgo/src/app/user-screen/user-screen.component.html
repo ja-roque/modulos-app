@@ -11,7 +11,7 @@
           </button>
           <span class="visible-xs navbar-brand">Sidebar menu</span>
         </div>
-        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+        <div class="navbar-collapse collapse sidebar-navbar-collapse" style="height: 3000px">
         	<div>
         		<div style="width: 100%">
         			<img class="roundHeadLogoRel" src="../../assets/imgs/Logo Lacthosa.png">
@@ -20,8 +20,30 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Resumen</a></li>
             <li><a href="#">Modulos disponibles:</a>
-            	<p>lorem blabalabfjsdfdbsfjbdsfb akdfkasfjs
-            	aksbfkjasdfaksjbfkas 'ajdfaksdjfbasdf</p></li>
+              <div class="list-group" style="overflow-y: scroll; height: 400px">
+                
+           <!--      <li class="dropdown"> -->
+                <button type="button" data-toggle="dropdown" class="availableModules list-group-item list-group-item-action dropdown-toggle active">Modulo 1</button>
+                <!-- <ul class="dropdown-menu" style="left: 5%; width: 90%;">
+                <li><a href="#">Presentacion</a></li>
+                <li><a href="#">Lectura</a></li>
+                <li><a href="#">Video</a></li>
+                <li><a href="#">Examen</a></li>
+                </ul>
+                </li> -->
+                <button type="button" class="availableModules list-group-item list-group-item-action">Modulo 2</button>
+                <button type="button" class="availableModules list-group-item list-group-item-action">Modulo 3</button>
+                <button type="button" class="availableModules list-group-item list-group-item-action">Modulo 4</button>
+                <button type="button" class="availableModules list-group-item list-group-item-action">Modulo 5</button>
+                <button type="button" class="availableModules list-group-item list-group-item-action">Modulo 6</button>
+                <button type="button" class="availableModules list-group-item list-group-item-action">Modulo 7</button>
+                <button type="button" class="availableModules list-group-item list-group-item-action">Modulo 8</button>
+                <button type="button" class="availableModules list-group-item list-group-item-action">Modulo 9</button>
+                <button type="button" class="availableModules list-group-item list-group-item-action">Modulo 10</button>
+                <button type="button" class="availableModules list-group-item list-group-item-action">Modulo 11</button>
+                <button type="button" class="availableModules list-group-item list-group-item-action">Modulo 12</button>
+              </div>
+            </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -41,7 +63,7 @@
       </div>
     </div>
   </div>
-  <div class="col-sm-9" [ngSwitch]='currentStep'>
+  <div class="col-sm-9" >
     <body>
       <div class="animateme">
         <ul class="bg-bubbles">
@@ -61,10 +83,41 @@
         </ul>
       </div>
       
-      <app-session-slideshow *ngSwitchCase="2" [isOn]='isOn'></app-session-slideshow>
-      <app-session-doc *ngSwitchCase="1" ></app-session-doc>      
+      <router-outlet></router-outlet>
+      <!-- <app-session-slideshow *ngSwitchCase="1" [isOn]='isOn' [(currentStep)]="currentStep"></app-session-slideshow>
+      <app-session-doc *ngSwitchCase="2" ></app-session-doc>  -->     
+
+      
 
     </body>
+    <div class="row bs-wizard" style="border-bottom:0;">
+                
+                <div class="col-xs-3 bs-wizard-step complete">
+                  <div class="text-center bs-wizard-stepnum">Presentacion</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                  <a href="#" class="bs-wizard-dot"></a>                  
+                </div>
+                
+                <div class="col-xs-3 bs-wizard-step active"><!-- complete -->
+                  <div class="text-center bs-wizard-stepnum">Lectura</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                  <a href="#" class="bs-wizard-dot"></a>                  
+                </div>
+                
+                <div class="col-xs-3 bs-wizard-step disabled"><!-- complete -->
+                  <div class="text-center bs-wizard-stepnum">Video</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                  <a href="#" class="bs-wizard-dot"></a>
+                </div>
+                
+                <div class="col-xs-3 bs-wizard-step disabled"><!-- active -->
+                  <div class="text-center bs-wizard-stepnum">Examen</div>
+                  <div class="progress"><div class="progress-bar"></div></div>
+                  <a href="#" class="bs-wizard-dot"></a>
+                </div>
+        </div>        
+        
   </div>
+
 </div>
 \

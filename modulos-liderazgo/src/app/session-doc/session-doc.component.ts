@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DocfetchService } from '../docfetch.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router, Resolve, ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 
 declare var Reveal:any;
 
@@ -15,21 +16,25 @@ export class SessionDocComponent implements OnInit {
 
 
 
-  constructor(private docFetch: DocfetchService) { }
+  constructor(private docFetch: DocfetchService, private route: ActivatedRoute, private router: Router) { }
 
-	getHeroes(): any {
+	getDocs(): any {
 	  return this.docFetch.getDoc(1);
 	}  
 
 	ngOnInit() {
-  		this.getHeroes().subscribe(data => {      
-			this.doc = data
-			console.log(this.doc)
-			this.initReveal();
-		});  	
+		this.doc = this.route.snapshot.data['doc'];
+		console.log(this.doc)
+		console.log(Reveal)
+		// Reveal.initialize();
+  // // 		this.getDocs().subscribe(data => {      
+		// // 	this.doc = data
+		// // 	console.log(this.doc)
+			this.initReveal(this.router);
+		// });  	
   	}
 
-	initReveal(): void {
+	initReveal(router): void {
 		Reveal.initialize({// The "normal" size of the presentation, aspect ratio will be preserved
 			// when the presentation is scaled to fit different resolutions
 			width: 960,
@@ -129,7 +134,7 @@ export class SessionDocComponent implements OnInit {
 	// event.previousSlide, event.currentSlide, event.indexh, event.indexv
 		if (Reveal.isLastSlide()) {
 			// code...
-			alert("IS LAST SLIDE");
+			router.navigate(['/user/video']);		
 		}
 		
 	});
