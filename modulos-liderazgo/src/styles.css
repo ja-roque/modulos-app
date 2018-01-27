@@ -20,7 +20,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
 
 .roundLogo{
 	border-radius: 50%;
-	background: #2D3E50;
+	/*background: #2D3E50;*/
 	height: 350px;
 	width: 350px;
 
@@ -32,9 +32,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
 }
 
 .roundHeadLogo {
-	max-width: 100%;
+	max-width: 110%;
     position: absolute;
-    top: -10%;
+    top: -30%;
     z-index: 2;
 }
 

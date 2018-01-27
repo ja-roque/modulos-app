@@ -5,6 +5,7 @@ import { LandingScreenComponent } from './landing-screen/landing-screen.componen
 import { SessionSlideshowComponent } from './session-slideshow/session-slideshow.component';
 import { SessionDocComponent } from './session-doc/session-doc.component';
 import { SessionVideoComponent } from './session-video/session-video.component';
+import { SessionExamComponent } from './session-exam/session-exam.component';
 import { UserScreenComponent } from './user-screen/user-screen.component';
 
 import { DocResolve } from './doc-resolve';
@@ -27,7 +28,12 @@ const routes: Routes = [
       {
         path: 'video',
         component: SessionVideoComponent,                
+      },
+      {
+        path: 'exam',
+        component: SessionExamComponent,                
       }
+
     ]
  	},
   // { path: 'presentation', component: SessionSlideshowComponent, pathMatch: 'full', outlet: 'step' },

@@ -120,7 +120,7 @@ export class SessionVideoComponent implements OnInit {
 	// event.previousSlide, event.currentSlide, event.indexh, event.indexv
 		if (Reveal.isLastSlide()) {
 			// code...
-			router.navigate(['/user/doc']);			
+			router.navigate(['/user/exam']);			
 		}
 		
 	});
