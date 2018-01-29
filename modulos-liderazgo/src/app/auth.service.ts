@@ -16,7 +16,7 @@ export class AuthService {
 
 
 		$.ajax({
-	        url: 'http://localhost:9000/rest-auth/login/',
+	        url: 'http://45.55.251.183/rest-auth/login/',
 	        type: "POST",
 		    dataType: "json",
 		    data: jsonData,
