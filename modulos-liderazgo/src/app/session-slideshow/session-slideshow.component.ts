@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { PresentationfetchService } from '../presentationfetch.service';
+import { DataService } from '../data.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router, Resolve, RouterStateSnapshot,
          ActivatedRouteSnapshot } from '@angular/router';
@@ -14,7 +15,7 @@ declare var Reveal:any;
 export class SessionSlideshowComponent implements OnInit {
 
 
-  constructor(private pptFetch: PresentationfetchService, private router: Router) { }
+  constructor(private pptFetch: PresentationfetchService, private router: Router, private data: DataService) { }
 
   private _flag;
   ppt: {}
@@ -37,6 +38,17 @@ export class SessionSlideshowComponent implements OnInit {
 	}  
 
 	ngOnInit() {
+		this.data.currentSession.subscribe(value => {
+			this.getPpts(value).subscribe(data => {      
+				this.ppt = data			
+				console.log(this.ppt)
+				this.initReveal( this.router);
+	
+			});  	
+			this.modnum = value;
+			this.initReveal( this.router);
+		})
+
   		this.getPpts(this.modnum).subscribe(data => {      
 			this.ppt = data			
 			console.log(this.ppt)
