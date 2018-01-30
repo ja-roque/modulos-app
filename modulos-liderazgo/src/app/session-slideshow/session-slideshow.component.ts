@@ -43,6 +43,7 @@ export class SessionSlideshowComponent implements OnInit {
 				this.ppt = data			
 				console.log(this.ppt)
 				this.initReveal( this.router);
+				Reveal.initialize();
 	
 			});  	
 			this.modnum = value;
@@ -154,6 +155,7 @@ export class SessionSlideshowComponent implements OnInit {
 
 	Reveal.addEventListener( 'slidechanged', function( event ) {
 	// event.previousSlide, event.currentSlide, event.indexh, event.indexv
+
 		if (Reveal.isLastSlide()) {
 			// code...
 			router.navigate(['/user/doc']);			

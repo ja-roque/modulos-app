@@ -5,7 +5,7 @@ import { BehaviorSubject} from 'rxjs/BehaviorSubject';
 export class DataService {
 
 	private sessionSource = new BehaviorSubject<number>(1);
-	currentSession = this.sessionSource.asObservable(;)
+	currentSession = this.sessionSource.asObservable();
 
   constructor() { }
 
