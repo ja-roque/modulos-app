@@ -10,6 +10,7 @@ import { PresentationfetchService } from './presentationfetch.service';
 import { ModulefetchService } from './modulefetch.service';
 
 import { DocResolve } from './doc-resolve';
+import { DataService } from './data.service';
 
 
 import { AppComponent } from './app.component';
@@ -43,7 +44,7 @@ import * as axios from 'axios'
     HttpClientModule
   ],
   providers: [
-  AuthService, DocfetchService, PresentationfetchService, ModulefetchService, DocResolve],
+  AuthService, DocfetchService, PresentationfetchService, ModulefetchService, DocResolve, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

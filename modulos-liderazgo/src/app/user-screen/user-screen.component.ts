@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModulefetchService } from '../modulefetch.service';
+import { DataService } from '../data.service';
 import { SessionSlideshowComponent} from '../session-slideshow/session-slideshow.component';
 
 declare var Reveal:any;
@@ -14,17 +15,28 @@ export class UserScreenComponent implements OnInit {
 
   isOn: boolean = true;
   modules: {}
+  modnum = 1;
   currentStep = 1;
 
-  constructor(private moduleFetch: ModulefetchService) { }
+  constructor(private moduleFetch: ModulefetchService, private data: DataService) { }
 
 	getModules(): any {
 		return this.moduleFetch.getModules();
 	}
 
+	goTo(val) {
+		let num = this.modnum;
+		console.log({num, val});
+		this.data.changeSession(val);
+		console.log(this.modnum);
+
+	}
+
 
 
   ngOnInit() {
+
+  	this.data.currentSession.subscribe(value => this.modnum = value)
   
 	this.getModules().subscribe(data => {      
 			this.modules = data			
