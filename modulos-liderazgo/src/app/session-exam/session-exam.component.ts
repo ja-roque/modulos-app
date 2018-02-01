@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
+import { ExamfetchService } from '../examfetch.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router, Resolve, RouterStateSnapshot, ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 declare var Reveal:any;
@@ -12,7 +13,11 @@ export class SessionExamComponent implements OnInit {
 
 	exam: {}
 
-  constructor( private route: ActivatedRoute, private router: Router) { }
+  constructor(private examFetch: ExamfetchService, private route: ActivatedRoute, private router: Router) { }
+
+  	getExams(): any {
+	  return this.examFetch.getExam(1);
+	}  
 
 	ngOnInit() {
 		this.exam = this.route.snapshot.data['exam'];

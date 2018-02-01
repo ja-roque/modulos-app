@@ -9,7 +9,7 @@ export class ExamResolve implements Resolve<any> {
 
   resolve(route: ActivatedRouteSnapshot) {
     // return this.docFetchService.getDoc((route.paramMap.get('id')));
-    return this.examFetchService.getExam(1);
+    return this.examFetchService.getExam(12);
   }
 }
 
