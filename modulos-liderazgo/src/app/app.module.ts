@@ -14,6 +14,10 @@ import { DocResolve } from './doc-resolve';
 import { ExamResolve } from './exam-resolve';
 
 
+import { DataService } from './data.service';
+
+
+
 import { AppComponent } from './app.component';
 import { TopbannerComponent } from './topbanner/topbanner.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -45,7 +49,7 @@ import * as axios from 'axios'
     HttpClientModule
   ],
   providers: [
-  AuthService, DocfetchService, PresentationfetchService, ExamfetchService, ModulefetchService, DocResolve, ExamResolve],
+  AuthService, DocfetchService, PresentationfetchService, ExamfetchService, ModulefetchService, DocResolve, ExamResolve, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
