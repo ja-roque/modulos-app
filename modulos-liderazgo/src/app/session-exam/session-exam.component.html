@@ -5,30 +5,38 @@
 		
 	    <!-- Empty slide for proper usage of LastSlide method from RevealJS -->
 	    
-	    <section>	   
-	    		<h3 style="color: white;">Una  organización es un conjunto de...</h3>
-	    		<section>
-					<div class="fragment fade-up">
-						<label style=" opacity: 1; color: white" class=" class123-label class123-radio" for="id123-control4243529_0"><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont">Option1</span></span></label>
+	    <section *ngFor="let question of exam.questions; let qNum = index">	   
+	    		
+				    <div class="modal_dialogPatched">
+				      <div class="modal-content" style="box-shadow: unset; background-color: unset;">
+				         <div class="modal-header">
+				            <h3 style="color: white;"><span class="label label-warning" id="qid">{{qNum+1}}</span>{{question[0]}}</h3>
+				        </div>
+				        <div class="modal-body" style="overflow-y: unset;">
+				            
+				            <!-- <div class="col-xs-3 col-xs-offset-5">
+				               <div id="loadbar" style="display: none;">
+				                  <div class="blockG" id="rotateG_01"></div>
+				                  <div class="blockG" id="rotateG_02"></div>
+				                  <div class="blockG" id="rotateG_03"></div>
+				                  <div class="blockG" id="rotateG_04"></div>
+				                  <div class="blockG" id="rotateG_05"></div>
+				                  <div class="blockG" id="rotateG_06"></div>
+				                  <div class="blockG" id="rotateG_07"></div>
+				                  <div class="blockG" id="rotateG_08"></div>
+				              </div>
+				          	</div> -->
 
-						<label style=" opacity: 1;  color: white " class=" class123-label class123-radio" for="id123-control4243529_0"><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont">Option2</span></span></label>
-
-						<label style=" opacity: 1;  color: white" class=" class123-label class123-radio" for="id123-control4243529_0"><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont">Option3</span></span></label>	
+				          <div class="quiz" id="quiz" data-toggle="buttons">
+				           <label *ngFor="let choice of question[1]; let cNum = index" class="element-animation1 btn btn-lg btn-primary btn-block"><span class="btn-label"><i class="glyphicon glyphicon-chevron-right"></i></span> <input type="radio" name="q_answer{{qNum}}" value="{{cNum}}">{{choice}}</label>
+				       </div>
+				   </div>
+				   <div class="modal-footer text-muted">
+				    <span id="answer"></span>
+						</div>
+						</div>
 					</div>
-    			</section>	    		    			    	
-    	</section>
-
-    	<section>	   
-	    		<h3 style="color: white;">Cuando supervises, es importante...</h3>
-	    		<section>
-					<div class="fragment fade-up">
-						<label style=" opacity: 1;  color: white" class=" class123-label class123-radio" for="id123-control4243529_0"><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont">Option1</span></span></label>
-
-						<label style=" opacity: 1;  color: white" class=" class123-label class123-radio" for="id123-control4243529_0"><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont">Option2</span></span></label>
-
-						<label style=" opacity: 1;  color: white" class=" class123-label class123-radio" for="id123-control4243529_0"><span class="outside"><span class="inside"></span></span><span class="label-text"><span class="label-cont">Option3</span></span></label>	
-					</div>
-    			</section>	    		    			    	
+				
     	</section>
 
 
@@ -36,3 +44,36 @@
 		
 	</div>
 </div>
+
+<script type="text/javascript">
+	$(function(){
+    var loading = $('#loadbar').hide();
+    $(document)
+    .ajaxStart(function () {
+        loading.show();
+    }).ajaxStop(function () {
+    	loading.hide();
+    });
+    
+    $("label.btn").on('click',function () {
+    	var choice = $(this).find('input:radio').val();
+    	$('#loadbar').show();
+    	$('#quiz').fadeOut();
+    	setTimeout(function(){
+           $( "#answer" ).html(  $(this).checking(choice) );      
+            $('#quiz').show();
+            $('#loadbar').fadeOut();
+           /* something else */
+    	}, 1500);
+    });
+
+    $ans = 3;
+
+    $.fn.checking = function(ck) {
+        if (ck != $ans)
+            return 'INCORRECT';
+        else 
+            return 'CORRECT';
+    }; 
+});	
+</script>

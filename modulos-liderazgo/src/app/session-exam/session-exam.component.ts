@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Router, Resolve, RouterStateSnapshot,ActivatedRouteSnapshot } from '@angular/router';
+import { Router, Resolve, RouterStateSnapshot, ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 declare var Reveal:any;
 
 @Component({
@@ -10,10 +10,13 @@ declare var Reveal:any;
 })
 export class SessionExamComponent implements OnInit {
 
+	exam: {}
 
-  constructor( private router: Router) { }
+  constructor( private route: ActivatedRoute, private router: Router) { }
 
 	ngOnInit() {
+		this.exam = this.route.snapshot.data['exam'];
+		console.log(this.exam)
 		this.initReveal(this.router)
   	}
 

@@ -9,6 +9,7 @@ import { SessionExamComponent } from './session-exam/session-exam.component';
 import { UserScreenComponent } from './user-screen/user-screen.component';
 
 import { DocResolve } from './doc-resolve';
+import { ExamResolve } from './exam-resolve';
 
 const routes: Routes = [
   { path: '', component: LandingScreenComponent },
@@ -31,7 +32,10 @@ const routes: Routes = [
       },
       {
         path: 'exam',
-        component: SessionExamComponent,                
+        component: SessionExamComponent,
+        resolve: {
+        exam: ExamResolve
+      }                
       }
 
     ]

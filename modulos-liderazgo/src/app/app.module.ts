@@ -7,9 +7,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './auth.service';
 import { DocfetchService } from './docfetch.service';
 import { PresentationfetchService } from './presentationfetch.service';
+import { ExamfetchService } from './examfetch.service';
 import { ModulefetchService } from './modulefetch.service';
 
 import { DocResolve } from './doc-resolve';
+import { ExamResolve } from './exam-resolve';
 
 
 import { AppComponent } from './app.component';
@@ -43,7 +45,7 @@ import * as axios from 'axios'
     HttpClientModule
   ],
   providers: [
-  AuthService, DocfetchService, PresentationfetchService, ModulefetchService, DocResolve],
+  AuthService, DocfetchService, PresentationfetchService, ExamfetchService, ModulefetchService, DocResolve, ExamResolve],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
