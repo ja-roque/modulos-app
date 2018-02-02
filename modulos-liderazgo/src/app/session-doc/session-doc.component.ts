@@ -30,6 +30,7 @@ export class SessionDocComponent implements OnInit {
   // // 		this.getDocs().subscribe(data => {      
 		// // 	this.doc = data
 		// // 	console.log(this.doc)
+			Reveal.initialize()
 			this.initReveal(this.router);
 		// });  	
   	}
