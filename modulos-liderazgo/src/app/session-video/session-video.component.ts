@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Router, Resolve, RouterStateSnapshot,
-         ActivatedRouteSnapshot } from '@angular/router';
+import {DomSanitizer} from '@angular/platform-browser';
+import { Router, Resolve, RouterStateSnapshot, ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 
 
 declare var Reveal:any;
@@ -13,10 +13,12 @@ declare var Reveal:any;
 })
 export class SessionVideoComponent implements OnInit {
 
+	video : {}
 
-  constructor( private router: Router) { }
+  constructor( private route: ActivatedRoute, private router: Router, public sanitizer: DomSanitizer ) { }
 
 	ngOnInit() {
+		this.video = this.route.snapshot.data['video'];
 		this.initReveal(this.router)
   	}
 

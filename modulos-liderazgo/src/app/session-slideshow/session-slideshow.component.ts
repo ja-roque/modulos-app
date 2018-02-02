@@ -3,7 +3,7 @@ import { PresentationfetchService } from '../presentationfetch.service';
 import { DataService } from '../data.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router, Resolve, RouterStateSnapshot,
-         ActivatedRouteSnapshot } from '@angular/router';
+         ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 
 declare var Reveal:any;
 
@@ -15,7 +15,7 @@ declare var Reveal:any;
 export class SessionSlideshowComponent implements OnInit {
 
 
-  constructor(private pptFetch: PresentationfetchService, private router: Router, private data: DataService) { }
+  constructor(private pptFetch: PresentationfetchService, private route: ActivatedRoute, private router: Router, private data: DataService) { }
 
   private _flag;
   ppt: {}
@@ -38,23 +38,24 @@ export class SessionSlideshowComponent implements OnInit {
 	}  
 
 	ngOnInit() {
-		this.data.currentSession.subscribe(value => {
-			this.getPpts(value).subscribe(data => {      
-				this.ppt = data			
-				console.log(this.ppt)
-				this.initReveal( this.router);
-				Reveal.initialize();
+		this.ppt = this.route.snapshot.data['ppt'];
+		// this.data.currentSession.subscribe(value => {
+		// 	this.getPpts(value).subscribe(data => {      
+		// 		this.ppt = data			
+		// 		console.log(this.ppt)
+		// 		this.initReveal( this.router);
+		// 		Reveal.initialize();
 	
-			});  	
-			this.modnum = value;
+		// 	});  	
+			// this.modnum = value;
 			this.initReveal( this.router);
-		})
+		// })
 
-  		this.getPpts(this.modnum).subscribe(data => {      
-			this.ppt = data			
-			console.log(this.ppt)
-			this.initReveal( this.router);
-		});  	
+  // 		this.getPpts(this.modnum).subscribe(data => {      
+		// 	this.ppt = data			
+		// 	console.log(this.ppt)
+		// 	this.initReveal( this.router);
+		// });  	
   	}
 
 	initReveal(router): void {

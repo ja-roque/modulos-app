@@ -20,6 +20,7 @@ export class SessionExamComponent implements OnInit {
 	}  
 
 	ngOnInit() {
+		// Get exam data through resolver to make sure data exists before HTML rendering occurs.
 		this.exam = this.route.snapshot.data['exam'];
 		console.log(this.exam)
 		this.initReveal(this.router)
