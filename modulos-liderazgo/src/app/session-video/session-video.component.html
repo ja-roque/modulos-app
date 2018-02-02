@@ -1,8 +1,7 @@
 <div class="reveal">
 	<div class="slides">
 		<section><h1 style="color: white;">Video {{video.id}}</h1></section>
-		
-	    <!-- Empty slide for proper usage of LastSlide method from RevealJS -->
+	    <!-- Empty slide for proper usage of LastSlide method from 	RevealJS -->
 	    <section>	    	
 	    		<p style="color: white" class="fragment fade-up">
 					•	Analizar el resultado y hacer un auto análisis.
@@ -19,9 +18,11 @@
 				    left: 50%;				    
 				    transform: translateX(-50%);
 				    height: 100%; width: 100%;
-				"  ><iframe style="height: 100%; width: 100%" [src]="this.sanitizer.bypassSecurityTrustResourceUrl(video.url)" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				"  ><iframe style="height: 100%; width: 100%" [src]="videoURL" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 		</section>
 
 		<section></section>
 	</div>
 </div>
+
+
