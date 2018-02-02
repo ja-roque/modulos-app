@@ -32,7 +32,7 @@ export class UserScreenComponent implements OnInit {
 		console.log(this.modnum);
 		// this.router.navigate(['/user/presentation/?step=' + this.modnum]);
 
-		this.router.navigate(['/'])
+		this.router.navigate(['/reload'])
     	.then(()=>{this.router.navigate(['/user/presentation'])})
 
 	}

@@ -34,6 +34,7 @@ import { SessionExamComponent } from './session-exam/session-exam.component';
 import * as axios from 'axios';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { SessionGraphsComponent } from './session-graphs/session-graphs.component';
+import { AdminScreenComponent } from './admin-screen/admin-screen.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { SessionGraphsComponent } from './session-graphs/session-graphs.componen
     SessionVideoComponent,
     SessionExamComponent,
     WelcomeComponent,
-    SessionGraphsComponent
+    SessionGraphsComponent,
+    AdminScreenComponent
   ],
   imports: [
     BrowserModule,

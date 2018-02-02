@@ -10,6 +10,9 @@ import { UserScreenComponent } from './user-screen/user-screen.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { SessionGraphsComponent } from './session-graphs/session-graphs.component';
 
+// Admin =========================================
+import { AdminScreenComponent } from './admin-screen/admin-screen.component';
+//  ==============================================
 
 import { DocResolve } from './doc-resolve';
 import { PptResolve } from './ppt-resolve';
@@ -18,6 +21,15 @@ import { ExamResolve } from './exam-resolve';
 
 const routes: Routes = [
   { path: '', component: LandingScreenComponent },
+  { path: 'reload', component: UserScreenComponent},
+  { path: 'admin', component: AdminScreenComponent,
+    children:[
+      {
+        path: 'graphs',
+        component: SessionGraphsComponent,                     
+      }
+    ]
+  },
   { path: 'user', component: UserScreenComponent,
   	children: [
       {
@@ -52,14 +64,9 @@ const routes: Routes = [
         exam: ExamResolve
       }
       },
-      {
-        path: 'admin',
-        component: SessionGraphsComponent,
-                      
-      }
-
     ]
  	},
+   { path: '**', component: LandingScreenComponent },
   // { path: 'presentation', component: SessionSlideshowComponent, pathMatch: 'full', outlet: 'step' },
   // { path: 'doc', component: SessionDocComponent, pathMatch: 'full', outlet: 'step' },
 ];
