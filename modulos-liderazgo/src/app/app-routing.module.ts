@@ -8,6 +8,8 @@ import { SessionVideoComponent } from './session-video/session-video.component';
 import { SessionExamComponent } from './session-exam/session-exam.component';
 import { UserScreenComponent } from './user-screen/user-screen.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { SessionGraphsComponent } from './session-graphs/session-graphs.component';
+
 
 import { DocResolve } from './doc-resolve';
 import { PptResolve } from './ppt-resolve';
@@ -41,14 +43,19 @@ const routes: Routes = [
         component: SessionVideoComponent,
         resolve: {
         video: VideoResolve
-      } 
+      }
       },
       {
         path: 'exam',
         component: SessionExamComponent,
         resolve: {
         exam: ExamResolve
-      }                
+      }
+      },
+      {
+        path: 'admin',
+        component: SessionGraphsComponent,
+                      
       }
 
     ]
