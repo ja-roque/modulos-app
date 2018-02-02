@@ -9,6 +9,8 @@ import { SessionExamComponent } from './session-exam/session-exam.component';
 import { UserScreenComponent } from './user-screen/user-screen.component';
 
 import { DocResolve } from './doc-resolve';
+import { PptResolve } from './ppt-resolve';
+import { VideoResolve } from './video-resolve';
 import { ExamResolve } from './exam-resolve';
 
 const routes: Routes = [
@@ -17,7 +19,10 @@ const routes: Routes = [
   	children: [
       {
         path: 'presentation',
-        component: SessionSlideshowComponent        
+        component: SessionSlideshowComponent,
+        resolve: {
+        ppt: PptResolve
+      }       
       },
       {
         path: 'doc',
@@ -28,7 +33,10 @@ const routes: Routes = [
       },
       {
         path: 'video',
-        component: SessionVideoComponent,                
+        component: SessionVideoComponent,
+        resolve: {
+        video: VideoResolve
+      } 
       },
       {
         path: 'exam',
