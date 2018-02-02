@@ -16,7 +16,7 @@ export class PptResolve implements Resolve<any> {
   	})
 
     // return this.docFetchService.getDoc((route.paramMap.get('id')));
-    
+    console.log('aqui esta el num usado para el service')
     console.log('num',this.num);
     return this.pptFetchService.getPresentation(this.num);
   }

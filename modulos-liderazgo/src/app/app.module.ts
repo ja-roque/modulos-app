@@ -31,7 +31,8 @@ import { SessionDocComponent } from './session-doc/session-doc.component';
 import { SessionVideoComponent } from './session-video/session-video.component';
 import { SessionExamComponent } from './session-exam/session-exam.component';
 
-import * as axios from 'axios'
+import * as axios from 'axios';
+import { WelcomeComponent } from './welcome/welcome.component'
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import * as axios from 'axios'
     SessionSlideshowComponent,
     SessionDocComponent,
     SessionVideoComponent,
-    SessionExamComponent
+    SessionExamComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,

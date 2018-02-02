@@ -30,7 +30,10 @@ export class UserScreenComponent implements OnInit {
 		console.log({num, val});
 		this.data.changeSession(val);
 		console.log(this.modnum);
-		this.router.navigate(['/user/presentation']);
+		// this.router.navigate(['/user/presentation/?step=' + this.modnum]);
+
+		this.router.navigate(['/'])
+    	.then(()=>{this.router.navigate(['/user/presentation'])})
 
 	}
 
@@ -141,6 +144,8 @@ export class UserScreenComponent implements OnInit {
 			// Number of slides away from the current that are visible
 			viewDistance: 3,
 	});
+
+	Reveal.slide(0)
 
   }
 

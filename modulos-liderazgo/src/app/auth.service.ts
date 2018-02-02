@@ -23,7 +23,7 @@ export class AuthService {
 		    contentType: "application/json",
 	        success: function(data) {
 	          console.log(data)
-	          window.location.href = '/user/presentation';
+	          window.location.href = '/user/welcome';
 	          localStorage.setItem('jwtToken', data.token);
 	        },
 	        error: function(data){
