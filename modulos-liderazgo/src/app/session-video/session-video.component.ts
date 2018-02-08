@@ -13,11 +13,12 @@ declare var Reveal:any;
 })
 export class SessionVideoComponent implements OnInit {
 
-	video : {}
+	video : {'videoUrl': ''}
+
 	videoURL: any
   constructor( private route: ActivatedRoute, private router: Router, public sanitizer: DomSanitizer ) { }
 
-	ngOnInit() {
+	ngOnInit() {		
 		this.video = this.route.snapshot.data['video'];
 		// Must sanitize video url for angular template syntax to allow adding dynamic urls
 		// Replace "watch " substring with "embed " to avoid iframe embedding issues.

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ModulefetchService } from '../modulefetch.service';
 import { DataService } from '../data.service';
 import { SessionSlideshowComponent} from '../session-slideshow/session-slideshow.component';
+import { Router, Resolve, ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 
 declare var Reveal:any;
 
@@ -18,7 +19,7 @@ export class UserScreenComponent implements OnInit {
   modnum = 1;
   currentStep = 1;
 
-  constructor(private moduleFetch: ModulefetchService, private data: DataService) { }
+  constructor(private moduleFetch: ModulefetchService, private data: DataService, private router: Router) { }
 
 	getModules(): any {
 		return this.moduleFetch.getModules();
@@ -29,6 +30,10 @@ export class UserScreenComponent implements OnInit {
 		console.log({num, val});
 		this.data.changeSession(val);
 		console.log(this.modnum);
+		// this.router.navigate(['/user/presentation/?step=' + this.modnum]);
+
+		this.router.navigate(['/reload'])
+    	.then(()=>{this.router.navigate(['/user/presentation'])})
 
 	}
 
@@ -139,6 +144,8 @@ export class UserScreenComponent implements OnInit {
 			// Number of slides away from the current that are visible
 			viewDistance: 3,
 	});
+
+	Reveal.slide(0)
 
   }
 
