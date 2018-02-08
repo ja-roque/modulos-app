@@ -31,7 +31,7 @@
 
 body{
   background:#252525;
-  height: 800px;
+  height: 90vh;
 }
 
 .availableModules {
@@ -308,3 +308,10 @@ body{
     }
 .bs-wizard > .bs-wizard-step.disabled a.bs-wizard-dot{ pointer-events: none; }
 /*END Form Wizard*/
+
+.moduleBtns{
+  padding: 5px; 
+  height: 40vh;
+  /*border: 3pt solid black;*/
+  overflow: auto;
+}
