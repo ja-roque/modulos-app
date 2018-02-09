@@ -1,6 +1,8 @@
-<div class="breadcrumb flat">
-	<div class="active"  (click)="nextStep(1)" >Presentacion</div>
-	<div (click)="nextStep(2)" >Lectura</div>
-	<div (click)="nextStep(3)" >Video</div>
-	<div (click)="nextStep(4);">Examen</div>
+<div class="breadcrumb flat" >
+	<div (click)="nextStep(1)" [ngClass]="{'active': crumbs.presentation}"> Presentacion</div>
+	<div (click)="nextStep(2)" [ngClass]="{'active': crumbs.doc}">Lectura</div>
+	<div (click)="nextStep(3)" [ngClass]="{'active': crumbs.video}">Video</div>
+	<div (click)="nextStep(4)" [ngClass]="{'active': crumbs.exam}">Examen</div>
+
+
 </div>

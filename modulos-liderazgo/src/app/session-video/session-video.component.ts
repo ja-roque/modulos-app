@@ -14,7 +14,7 @@ declare var Reveal:any;
 export class SessionVideoComponent implements OnInit {
 
 	video : {'videoUrl': ''}
-
+	
 
 	videoURL: any
 

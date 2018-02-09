@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, Resolve, ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 import { PreventDefaultDirective } from './../prevent-default.directive';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-crumbs',
@@ -9,7 +10,12 @@ import { PreventDefaultDirective } from './../prevent-default.directive';
 })
 export class CrumbsComponent implements OnInit {
 
-
+crumbs = {
+		"presentation":true,
+		"doc":false,
+		"video":false,
+		"exam":false
+	}
 
   constructor(private router: Router) { }
 
@@ -46,6 +52,21 @@ export class CrumbsComponent implements OnInit {
 
   ngOnInit() {
   	console.log("this.router.url",this.router.url);
+  	switch (this.router.url) {
+  		case "/user/exam":
+  			this.crumbs.exam = true;
+  		case "/user/video":
+  			// code...
+  			this.crumbs.video = true;
+  		case "/user/doc":
+  			// code...
+  			this.crumbs.doc = true;
+  		case "/user/presentation":
+  			// code...
+  			this.crumbs.presentation = true;
+  	}
+
+  	console.log(this.crumbs);
   }
 
 }
