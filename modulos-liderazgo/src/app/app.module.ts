@@ -36,6 +36,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { SessionGraphsComponent } from './session-graphs/session-graphs.component';
 import { AdminScreenComponent } from './admin-screen/admin-screen.component';
 import { CrumbsComponent } from './crumbs/crumbs.component';
+import { PreventDefaultDirective } from './prevent-default.directive';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { CrumbsComponent } from './crumbs/crumbs.component';
     WelcomeComponent,
     SessionGraphsComponent,
     AdminScreenComponent,
-    CrumbsComponent
+    CrumbsComponent,
+    PreventDefaultDirective
   ],
   imports: [
     BrowserModule,

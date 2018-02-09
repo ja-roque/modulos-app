@@ -86,5 +86,5 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
 .present {
   height: 90%;
   width: 90%;
-  overflow-y: auto;
+  /*overflow-y: auto;*/
 }

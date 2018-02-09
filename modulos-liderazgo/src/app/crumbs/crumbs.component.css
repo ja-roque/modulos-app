@@ -14,7 +14,7 @@
 	counter-reset: flag; 
 }
 
-.breadcrumb a {
+.breadcrumb div {
 	text-decoration: none;
 	outline: none;
 	display: block;
@@ -29,30 +29,30 @@
 	position: relative;
 }
 /*since the first link does not have a triangle before it we can reduce the left padding to make it look consistent with other links*/
-.breadcrumb a:first-child {
+.breadcrumb div:first-child {
 	padding-left: 46px;
 	border-radius: 5px 0 0 5px; /*to match with the parent's radius*/
 }
-.breadcrumb a:first-child:before {
+.breadcrumb div:first-child:before {
 	left: 14px;
 }
-.breadcrumb a:last-child {
+.breadcrumb div:last-child {
 	border-radius: 0 5px 5px 0; /*this was to prevent glitches on hover*/
 	padding-right: 20px;
 }
 
 /*hover/active styles*/
-.breadcrumb a.active, .breadcrumb a:hover{
+.breadcrumb div.active, .breadcrumb div:hover{
 	background: #333;
 	background: linear-gradient(#333, #000);
 }
-.breadcrumb a.active:after, .breadcrumb a:hover:after {
+.breadcrumb div.active:after, .breadcrumb div:hover:after {
 	background: #333;
 	background: linear-gradient(135deg, #333, #000);
 }
 
 /*adding the arrows for the breadcrumbs using rotated pseudo elements*/
-.breadcrumb a:after {
+.breadcrumb div:after {
 	content: '';
 	position: absolute;
 	top: 0; 
@@ -79,11 +79,11 @@
 	border-radius: 0 5px 0 50px;
 }
 /*we dont need an arrow after the last link*/
-.breadcrumb a:last-child:after {
+.breadcrumb div:last-child:after {
 	content: none;
 }
 /*we will use the :before element to show numbers*/
-.breadcrumb a:before {
+.breadcrumb div:before {
 	content: counter(flag);
 	counter-increment: flag;
 	/*some styles now*/
@@ -102,18 +102,18 @@
 }
 
 
-.flat a, .flat a:after {
+.flat div, .flat div:after {
 	background: white;
 	color: black;
 	transition: all 0.5s;
 }
-.flat a:before {
+.flat div:before {
 	background: white;
 	box-shadow: 0 0 0 1px #ccc;
 }
-.flat a:hover, .flat a.active, 
-.flat a:hover:after, .flat a.active:after{
-	background: #9EEB62;
+.flat div:hover, .flat div.active, 
+.flat div:hover:after, .flat div.active:after{
+	background: #337ab7;
 }
 
 

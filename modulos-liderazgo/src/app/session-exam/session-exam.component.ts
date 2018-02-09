@@ -10,7 +10,9 @@ declare var Reveal:any;
   styleUrls: ['./session-exam.component.css']
 })
 export class SessionExamComponent implements OnInit {
-	exam = {}
+	exam = {
+		"questions": []
+	}
 	examJSON = {
 	  "questions": []
 	} // shows question number and the answers from the user.
