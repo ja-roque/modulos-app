@@ -21,6 +21,12 @@
 }
 
 
+.bs-wizard{
+  position: absolute;
+  bottom:0;
+  width: 100%;
+  z-index: 999;
+}
 
 
 *{
@@ -213,8 +219,6 @@ body{
   }
 }
 
-.bs-wizard {}
-
 *Form Wizard*/
 .bs-wizard {border-bottom: solid 1px #e0e0e0; padding: 0 0 10px 0;}
 .bs-wizard > .bs-wizard-step {padding: 0; position: relative;}
@@ -315,3 +319,6 @@ body{
   /*border: 3pt solid black;*/
   overflow: auto;
 }
+
+/*////////////////////////////////////////////////////////////////////////*/
+
