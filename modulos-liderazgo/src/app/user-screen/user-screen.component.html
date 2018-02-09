@@ -23,7 +23,7 @@
               <div class="list-group">
                 <div class="moduleBtns">
            <!--      <li class="dropdown"> -->
-                <button type="button" data-toggle="dropdown" class="availableModules list-group-item list-group-item-action dropdown-toggle active" (click)="goTo(1)">Modulo 1</button>
+                <button type="button" data-toggle="dropdown" class="availableModules list-group-item list-group-item-action dropdown-toggle " (click)="goTo(1)" [ngClass]="{'active': (modnum === 1) }">Modulo 1</button>
                 <!-- <ul class="dropdown-menu" style="left: 5%; width: 90%;">
                 <li><a href="#">Presentacion</a></li>
                 <li><a href="#">Lectura</a></li>
@@ -32,15 +32,17 @@
                 </ul>
                 </li> -->
                 
-                  <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(2)">Modulo 2</button>
-                  <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(3)">Modulo 3</button>
-                  <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(4)">Modulo 4</button>
-                  <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(5)">Modulo 5</button>
-                  <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(6)">Modulo 6</button><button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(7)">Modulo 7</button>
-                  <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(8)">Modulo 8</button><button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(9)">Modulo 9</button>
-                  <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(10)">Modulo 10</button>
-                  <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(11)">Modulo 11</button>
-                  <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(12)">Modulo 12</button>
+                  <button type="button" class="availableModules list-group-item list-group-item-action" [ngClass]="{'active': (modnum === 2) }" (click)="goTo(2)">Modulo 2</button>
+                  <button type="button" class="availableModules list-group-item list-group-item-action" [ngClass]="{'active': (modnum === 3) }" (click)="goTo(3)">Modulo 3</button>
+                  <button type="button" class="availableModules list-group-item list-group-item-action" [ngClass]="{'active': (modnum === 4) }" (click)="goTo(4)">Modulo 4</button>
+                  <button type="button" class="availableModules list-group-item list-group-item-action" [ngClass]="{'active': (modnum === 5) }" (click)="goTo(5)">Modulo 5</button>
+                  <button type="button" class="availableModules list-group-item list-group-item-action" [ngClass]="{'active': (modnum === 6) }" (click)="goTo(6)">Modulo 6</button>
+                  <button type="button" class="availableModules list-group-item list-group-item-action" [ngClass]="{'active': (modnum === 7) }" (click)="goTo(7)">Modulo 7</button>
+                  <button type="button" class="availableModules list-group-item list-group-item-action" [ngClass]="{'active': (modnum === 8) }" (click)="goTo(8)">Modulo 8</button>
+                  <button type="button" class="availableModules list-group-item list-group-item-action" [ngClass]="{'active': (modnum === 9) }" (click)="goTo(9)">Modulo 9</button>
+                  <button type="button" class="availableModules list-group-item list-group-item-action" [ngClass]="{'active': (modnum === 10) }" (click)="goTo(10)">Modulo 10</button>
+                  <button type="button" class="availableModules list-group-item list-group-item-action" [ngClass]="{'active': (modnum === 11) }" (click)="goTo(11)">Modulo 11</button>
+                  <button type="button" class="availableModules list-group-item list-group-item-action" [ngClass]="{'active': (modnum === 12) }" (click)="goTo(12)">Modulo 12</button>
                 </div>
               </div>
             </li>

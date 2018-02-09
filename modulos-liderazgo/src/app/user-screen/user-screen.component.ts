@@ -3,6 +3,7 @@ import { ModulefetchService } from '../modulefetch.service';
 import { DataService } from '../data.service';
 import { SessionSlideshowComponent} from '../session-slideshow/session-slideshow.component';
 import { Router, Resolve, ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
+import { NgClass } from '@angular/common';
 
 declare var Reveal:any;
 
