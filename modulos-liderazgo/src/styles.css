@@ -10,7 +10,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
 }
 
 .topBar{
-	height: 80px; 
+	height: 70px; 
 	background-color: #2D3E50;
 }
 
@@ -77,4 +77,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
   bottom:0;
   left:0;
   right:0;
+}
+
+.progress {
+  top:0;
+}
+
+.present {
+  height: 90%;
+  width: 90%;
+  /*overflow-y: auto;*/
 }

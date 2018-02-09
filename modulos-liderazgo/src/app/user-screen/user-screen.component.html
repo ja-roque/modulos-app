@@ -11,7 +11,7 @@
           </button>
           <span class="visible-xs navbar-brand">Sidebar menu</span>
         </div>
-        <div class="navbar-collapse collapse sidebar-navbar-collapse" style="height: 3000px">
+        <div class="navbar-collapse collapse sidebar-navbar-collapse" >
         	<div>
         		<div style="width: 100%">
         			<img class="roundHeadLogoRel" src="../../assets/imgs/Logo Lacthosa.png">
@@ -20,8 +20,8 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Resumen</a></li>
             <li><a href="#">Modulos disponibles:</a>
-              <div class="list-group" style="overflow-y: scroll; height: 400px">
-                
+              <div class="list-group">
+                <div class="moduleBtns">
            <!--      <li class="dropdown"> -->
                 <button type="button" data-toggle="dropdown" class="availableModules list-group-item list-group-item-action dropdown-toggle active" (click)="goTo(1)">Modulo 1</button>
                 <!-- <ul class="dropdown-menu" style="left: 5%; width: 90%;">
@@ -31,17 +31,17 @@
                 <li><a href="#">Examen</a></li>
                 </ul>
                 </li> -->
-                <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(2)">Modulo 2</button>
-                <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(3)">Modulo 3</button>
-                <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(4)">Modulo 4</button>
-                <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(5)">Modulo 5</button>
-                <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(6)">Modulo 6</button>
-                <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(7)">Modulo 7</button>
-                <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(8)">Modulo 8</button>
-                <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(9)">Modulo 9</button>
-                <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(10)">Modulo 10</button>
-                <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(11)">Modulo 11</button>
-                <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(12)">Modulo 12</button>
+                
+                  <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(2)">Modulo 2</button>
+                  <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(3)">Modulo 3</button>
+                  <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(4)">Modulo 4</button>
+                  <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(5)">Modulo 5</button>
+                  <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(6)">Modulo 6</button><button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(7)">Modulo 7</button>
+                  <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(8)">Modulo 8</button><button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(9)">Modulo 9</button>
+                  <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(10)">Modulo 10</button>
+                  <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(11)">Modulo 11</button>
+                  <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goTo(12)">Modulo 12</button>
+                </div>
               </div>
             </li>
             <li class="dropdown">
@@ -90,31 +90,32 @@
       
 
     </body>
-    <div class="row bs-wizard" style="border-bottom:0;">
+    <div class="row bs-wizard">
+      <app-crumbs></app-crumbs>
                 
-                <div class="col-xs-3 bs-wizard-step complete">
+                <!-- <div class="col-xs-3 bs-wizard-step complete">
                   <div class="text-center bs-wizard-stepnum">Presentacion</div>
                   <div class="progress"><div class="progress-bar"></div></div>
                   <a href="#" class="bs-wizard-dot"></a>                  
                 </div>
                 
-                <div class="col-xs-3 bs-wizard-step active"><!-- complete -->
+                <div class="col-xs-3 bs-wizard-step active"><!- complete ->
                   <div class="text-center bs-wizard-stepnum">Lectura</div>
                   <div class="progress"><div class="progress-bar"></div></div>
                   <a href="#" class="bs-wizard-dot"></a>                  
                 </div>
                 
-                <div class="col-xs-3 bs-wizard-step disabled"><!-- complete -->
+                <div class="col-xs-3 bs-wizard-step disabled"><!- complete ->
                   <div class="text-center bs-wizard-stepnum">Video</div>
                   <div class="progress"><div class="progress-bar"></div></div>
                   <a href="#" class="bs-wizard-dot"></a>
                 </div>
                 
-                <div class="col-xs-3 bs-wizard-step disabled"><!-- active -->
+                <div class="col-xs-3 bs-wizard-step disabled"><!- active ->
                   <div class="text-center bs-wizard-stepnum">Examen</div>
                   <div class="progress"><div class="progress-bar"></div></div>
                   <a href="#" class="bs-wizard-dot"></a>
-                </div>
+                </div> -->
         </div>        
         
   </div>
