@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-topbanner',
@@ -16,7 +17,7 @@ export class TopbannerComponent implements OnInit {
 
 
 
-  constructor() { }
+  constructor(private appVars: AppComponent ) { }
 
   ngOnInit() {
   }

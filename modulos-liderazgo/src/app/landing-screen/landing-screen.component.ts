@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { AppComponent } from '../app.component';
 
 declare var jquery:any;
 declare var $ :any;
@@ -10,7 +11,7 @@ declare var $ :any;
 })
 export class LandingScreenComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private appVars: AppComponent) { }
 
   ngOnInit() {
   }
@@ -18,7 +19,7 @@ export class LandingScreenComponent implements OnInit {
 	loginFormSubmit(loginForm: any): void {
 		$('#loginLoading').removeAttr('hidden');
 		console.log(loginForm);
-
+		
 		let username = loginForm.form.value.username
 		let password = loginForm.form.value.password
 

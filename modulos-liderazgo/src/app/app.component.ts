@@ -8,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Modulos de Liderazgo';
+
+  company = window.location.host.split( '.' )[0];
 }
