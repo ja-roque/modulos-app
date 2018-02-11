@@ -10,19 +10,45 @@ declare var Reveal:any;
   styleUrls: ['./session-exam.component.css']
 })
 export class SessionExamComponent implements OnInit {
-
-	exam: {}
+	exam = {
+		"questions": []
+	}
+	examJSON = {
+	  "questions": []
+	} // shows question number and the answers from the user.
 
   constructor(private examFetch: ExamfetchService, private route: ActivatedRoute, private router: Router) { }
 
   	getExams(): any {
 	  return this.examFetch.getExam(1);
-	}  
+	} 
+
+	test() {
+
+
+		console.log("ASDFADSFKASDF");
+	}
+
+	answer(num,answer) {
+		
+		this.examJSON.questions[num] = answer;
+		
+
+
+		
+
+		//{num,answer,LEN}
+	} 
 
 	ngOnInit() {
 		// Get exam data through resolver to make sure data exists before HTML rendering occurs.
 		this.exam = this.route.snapshot.data['exam'];
-		console.log(this.exam)
+		console.log(this.exam);
+		let LEN = this.exam.questions.length;
+		for(let i = 0; i < LEN ; i++){
+			this.examJSON.questions.push(null); 
+		}
+		console.log("xmanJson",this.examJSON);
 		Reveal.initialize()
 		this.initReveal(this.router)
   	}
@@ -127,7 +153,11 @@ export class SessionExamComponent implements OnInit {
 	// event.previousSlide, event.currentSlide, event.indexh, event.indexv
 		if (Reveal.isLastSlide()) {
 			// code...
-			alert('Fin del modulo')
+			alert('Fin del modulo');
+			console.log("xmanJson",this.examJSON);
+			/// Answers input from the user should be in => this.examJSON
+			/// if one of the answers inside the'questions' array is NULL it means the user did not answer that question.
+
 		}
 		
 	});

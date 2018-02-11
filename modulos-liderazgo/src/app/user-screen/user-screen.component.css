@@ -21,6 +21,24 @@
 }
 
 
+.bs-wizard{
+  position: absolute;
+  bottom:0;
+  left:0;
+  right: 40px;
+
+  width: 100%;
+  z-index: 999;
+  margin:auto;
+  /*border:3pt solid red;*/
+  display: flex;
+}
+
+.bs-wizard > * {
+  /*flex:2;*/
+  margin: auto !important;
+  /*border:3pt solid blue;*/
+}
 
 
 *{
@@ -31,7 +49,7 @@
 
 body{
   background:#252525;
-  height: 800px;
+  height: 90vh;
 }
 
 .availableModules {
@@ -213,8 +231,6 @@ body{
   }
 }
 
-.bs-wizard {}
-
 *Form Wizard*/
 .bs-wizard {border-bottom: solid 1px #e0e0e0; padding: 0 0 10px 0;}
 .bs-wizard > .bs-wizard-step {padding: 0; position: relative;}
@@ -308,3 +324,13 @@ body{
     }
 .bs-wizard > .bs-wizard-step.disabled a.bs-wizard-dot{ pointer-events: none; }
 /*END Form Wizard*/
+
+.moduleBtns{
+  padding: 5px; 
+  height: 40vh;
+  /*border: 3pt solid black;*/
+  overflow: auto;
+}
+
+/*////////////////////////////////////////////////////////////////////////*/
+
