@@ -4,6 +4,7 @@ import { DataService } from '../data.service';
 import { SessionSlideshowComponent} from '../session-slideshow/session-slideshow.component';
 import { Router, Resolve, ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 import { NgClass } from '@angular/common';
+import { AppComponent } from '../app.component';
 
 declare var Reveal:any;
 
@@ -16,40 +17,50 @@ declare var Reveal:any;
 export class UserScreenComponent implements OnInit {
 
   isOn: boolean = true;
-  modules: {}
+  modules: { 'sessionReached': 0}
   modnum = 1;
   currentStep = 1;
 
-  constructor(private moduleFetch: ModulefetchService, private data: DataService, private router: Router) { }
+  constructor(private moduleFetch: ModulefetchService, private data: DataService, private router: Router, public appVars: AppComponent) { }
 
 	getModules(): any {
 		return this.moduleFetch.getModules();
 	}
 
 	goTo(val) {
-		let num = this.modnum;
-		console.log({num, val});
-		this.data.changeSession(val);
-		console.log(this.modnum);
-		// this.router.navigate(['/user/presentation/?step=' + this.modnum]);
 
-		this.router.navigate(['/reload'])
-    	.then(()=>{this.router.navigate(['/user/presentation'])})
+		let mayGotoMod = true;
+		// Verify if the module is enabled for the current user.
+		this.getModules().subscribe(data => {      
+			this.modules = data			
+			console.log(this.modules)
 
-	}
+			if (val > this.modules['sessionReached']) {
+				alert('Porfavor completa el modulo ' + this.modules.sessionReached + ' para poder cursar éste modulo.')
+				mayGotoMod = false;
+			}
+
+			if (mayGotoMod) {
+				// code...
+				let num = this.modnum;
+				console.log({num, val});
+				this.data.changeSession(val);
+				console.log(this.modnum);
+				// this.router.navigate(['/user/presentation/?step=' + this.modnum]);
+
+				this.router.navigate(['/reload'])
+		    		.then(()=>{this.router.navigate(['/user/presentation'])})
+			}
+		})				
+			// Reveal.configure({viewDistance: 3});
+			// console.log(Reveal)
+		}
 
 
 
   ngOnInit() {
 
-  	this.data.currentSession.subscribe(value => this.modnum = value)
-  
-	this.getModules().subscribe(data => {      
-			this.modules = data			
-			console.log(this.modules)
-			Reveal.configure({viewDistance: 3});
-			console.log(Reveal)
-	});
+  	this.data.currentSession.subscribe(value => this.modnum = value)  	
 
 	Reveal.initialize({// The "normal" size of the presentation, aspect ratio will be preserved
 			// when the presentation is scaled to fit different resolutions
@@ -99,7 +110,7 @@ export class UserScreenComponent implements OnInit {
 
 			// Flags if the presentation is running in an embedded mode,
 			// i.e. contained within a limited portion of the screen
-			embedded: false,
+			embedded: true,
 
 			// Number of milliseconds between automatically proceeding to the
 			// next slide, disabled when set to 0, this value can be overwritten
@@ -143,7 +154,7 @@ export class UserScreenComponent implements OnInit {
 			parallaxBackgroundSize: '', // CSS syntax, e.g. "3000px 2000px"
 
 			// Number of slides away from the current that are visible
-			viewDistance: 3,
+			viewDistance: 3
 	});
 
 	Reveal.slide(0)

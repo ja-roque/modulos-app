@@ -12,7 +12,7 @@ declare var Reveal:any;
 })
 export class SessionDocComponent implements OnInit {
 
-  doc: {}
+  doc: {'title': '', 'slides': ['']}
 
 
 

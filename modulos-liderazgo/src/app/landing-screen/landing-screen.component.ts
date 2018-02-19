@@ -11,7 +11,7 @@ declare var $ :any;
 })
 export class LandingScreenComponent implements OnInit {
 
-  constructor(private authService: AuthService, private appVars: AppComponent) { }
+  constructor(private authService: AuthService, public appVars: AppComponent) { }
 
   ngOnInit() {
   }

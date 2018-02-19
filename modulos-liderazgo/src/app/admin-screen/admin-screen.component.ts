@@ -9,7 +9,9 @@ export class AdminScreenComponent implements OnInit {
 
   constructor() { }
 
-  
+  goToGraph(graphId): any {
+		
+	}
   
   ngOnInit() {
   }
