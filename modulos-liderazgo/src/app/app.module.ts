@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AlertModule } from 'ngx-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 
+import { ModalModule } from 'ngx-bootstrap';
+
 import { AuthService } from './auth.service';
 import { DocfetchService } from './docfetch.service';
 import { PresentationfetchService } from './presentationfetch.service';
@@ -59,7 +61,8 @@ import { PreventDefaultDirective } from './prevent-default.directive';
     FormsModule,
     AlertModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ModalModule.forRoot()
   ],
   providers: [
     AuthService, 
