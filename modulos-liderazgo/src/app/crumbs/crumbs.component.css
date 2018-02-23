@@ -23,7 +23,7 @@
 	line-height: 36px;
 	color: white;
 	/*need more margin on the left of links to accomodate the numbers*/
-	padding: 0 10px 0 60px;
+	padding: 0 8px 0 52px;
 	background: #666;
 	background: linear-gradient(#666, #333);
 	position: relative;

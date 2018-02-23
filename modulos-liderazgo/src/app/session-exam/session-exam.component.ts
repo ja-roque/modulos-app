@@ -31,7 +31,11 @@ export class SessionExamComponent implements OnInit {
 
 	answer(num,answer) {
 		
+		console.log(num)
+		console.log('answer: ' + answer)
 		this.examJSON.questions[num] = answer;
+
+		console.log(this.examJSON)
 		
 
 
@@ -53,7 +57,8 @@ export class SessionExamComponent implements OnInit {
 		this.initReveal(this.router)
   	}
 
-	initReveal(router): void {
+	initReveal(this, router): void {
+		var vars = this;		
 		Reveal.initialize({// The "normal" size of the presentation, aspect ratio will be preserved
 			// when the presentation is scaled to fit different resolutions
 			width: 960,
@@ -153,8 +158,9 @@ export class SessionExamComponent implements OnInit {
 	// event.previousSlide, event.currentSlide, event.indexh, event.indexv
 		if (Reveal.isLastSlide()) {
 			// code...
+			console.log(vars)
 			alert('Fin del modulo');
-			console.log("xmanJson",this.examJSON);
+			console.log("xmanJson",vars.examJSON);
 			/// Answers input from the user should be in => this.examJSON
 			/// if one of the answers inside the'questions' array is NULL it means the user did not answer that question.
 

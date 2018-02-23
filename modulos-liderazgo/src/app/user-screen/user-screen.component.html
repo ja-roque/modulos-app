@@ -1,3 +1,23 @@
+<style type="text/css">
+  .btn{
+    line-height: 2.428571;
+    position: relative;
+    float: left;
+    margin-right: 30px;
+  }
+
+  .side-icon{
+    width: 50%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+  }
+
+  .side-button{
+    margin-right: 30px;
+  }
+</style>
+
 <div class="row">
   <div class="col-sm-3">
     <div class="sidebar-nav">
@@ -19,9 +39,9 @@
         	</div>
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Resumen</a></li>
-            <li><a href="#">Modulos disponibles:</a>
+            <li style="padding-bottom: 100vh"><a href="#">Modulos disponibles:</a>
               <div class="list-group">
-                <div class="moduleBtns">
+                <div class="moduleBtns" style="height: 50vh">
            <!--      <li class="dropdown"> -->
                 <button type="button" data-toggle="dropdown" class="availableModules list-group-item list-group-item-action dropdown-toggle " (click)="goTo(1)" [ngClass]="{'active': (modnum === 1) }">1 - Comunicación Efectiva</button>
                 <!-- <ul class="dropdown-menu" style="left: 5%; width: 90%;">
@@ -46,20 +66,11 @@
                 </div>
               </div>
             </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
-            <li><a href="#">Menu Item 4</a></li>
-            <li><a href="#">Reviews <span class="badge">1,118</span></a></li>
+
+    
+            
+
+
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -89,10 +100,7 @@
       <!-- <app-session-slideshow *ngSwitchCase="1" [isOn]='isOn' [(currentStep)]="currentStep"></app-session-slideshow>
       <app-session-doc *ngSwitchCase="2" ></app-session-doc>  -->     
 
-      
-
-    </body>
-    <div class="row bs-wizard">
+      <div class="row bs-wizard">
       <app-crumbs></app-crumbs>
                 
                 <!-- <div class="col-xs-3 bs-wizard-step complete">
@@ -120,6 +128,9 @@
                 </div> -->
         </div>        
         
+
+    </body>
+    
   </div>
 
 </div>
