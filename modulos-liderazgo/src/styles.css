@@ -9,7 +9,7 @@ background: linear-gradient(135deg, #1e5799 0%,#2989d8 16%,#207cca 70%,#128ae5 1
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#128ae5',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
-@media (max-height: 800px) {
+@media (max-width: 500px) {
   .reveal .controls {
     bottom: 85px !important;
   }
@@ -17,6 +17,25 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
   .breadcrumb {
     position: relative;
     bottom: 50px;
+  }
+
+
+}
+
+@media (max-width: 380px) {
+  .reveal .controls {
+    bottom: 95px !important;
+  }
+
+  .breadcrumb {
+    display: flex !important;
+    position: relative;
+    bottom: 50px;
+    width: 100vw !important;
+  }
+
+  .breadcrumb > div {
+    width: 95px !important;
   }
 
 
