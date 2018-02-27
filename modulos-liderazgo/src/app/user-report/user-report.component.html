@@ -1,0 +1,72 @@
+<style type="text/css">
+	.report-row{
+		padding: 0px;
+	}
+</style>
+<div class="modal-header">
+      <h4 class="modal-title pull-left">{{title}}</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body" style="overflow-y: scroll; top: unset; height: 100%;">
+    	<div class="row">
+    		<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="  text-align: center;
+">
+    			<img style="width: 100%" src="http://45.55.251.183/content/logos/lacthosa.png">
+    			 <table class="table">
+				    <tr>
+				    	<td class="report-row">Nombre: </td>
+				    	<td class="report-row">Jose Mendez Aguilar</td>
+				    </tr>
+				    <tr>
+				    	<td class="report-row">Puesto: </td>
+				    	<td class="report-row">Coordinador de almacenes</td>
+				    </tr>
+				    <tr>
+				    	<td class="report-row">Area: </td>
+				    	<td class="report-row">Compras</td>
+				    </tr>
+				    <tr>
+				    	<td class="report-row">Departamento: </td>
+				    	<td class="report-row">Almacenes</td>
+				    </tr>
+				    <tr>
+				    	<td class="report-row">Años de experiencia: </td>
+				    	<td class="report-row">15</td>
+				    </tr>
+				  </table>
+
+				  <img style="display: inline-block;" 	src="../../assets/imgs/perfil.png">
+    		</div>
+    		<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+    			<div style="width:100%; margin:auto;">
+					<canvas id="radar">{{radar}}</canvas>
+				</div>
+    		</div>
+    	</div>
+
+    	<div class="row">
+	    		<div class="col-lg-4 col-md-4 col-sm-12">
+	    			<div style="width: 100%; margin: auto;" >
+						<canvas id="barEvolucion">{{barEvolucion}}</canvas>
+					</div>
+	    		</div>
+	    		<div class="col-lg-4 col-md-4 col-sm-12">
+	    			<div style="width: 100%; margin: auto;" >
+						<canvas id="barDias">{{barDias}}</canvas>
+					</div>
+	    		</div>
+	    		<div class="col-lg-4 col-md-4 col-sm-12">
+	    			<div style="width: 100%; margin: auto;" >
+						<canvas id="barIntentos">{{barIntentos}}</canvas>
+					</div>
+	    		</div>
+		</div>
+      <!-- <ul *ngIf="list.length">
+        <li *ngFor="let item of list">{{item}}</li>
+      </ul> -->
+    </div>
+    <div class="modal-footer" style=" position: relative;">
+      <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">{{closeBtnName}}</button>
+</div>

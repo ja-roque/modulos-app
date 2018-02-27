@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Injectable()
-export class ModulefetchService {
+export class PostExamAnswersService {
 
   constructor( 
   	private http: HttpClient,
@@ -13,9 +13,9 @@ export class ModulefetchService {
 
   response: {}
 
-  getModules () {
-  	var modulesUrl = 'http://45.55.251.183/getusermodules/';  // URL to web api
-  	return this.http.get(modulesUrl,
+  postExamScore (SessionNumber, Score) {
+  	var postExamScoreUrl = 'http://localhost:9000/postexamscore/';  // URL to web api
+  	return this.http.post(postExamScoreUrl, {"sessionNumber": SessionNumber, "Score": Score},
   		{headers: new HttpHeaders().set('Authorization', 'JWT ' + localStorage.getItem("jwtToken") ) }
   		)
   }

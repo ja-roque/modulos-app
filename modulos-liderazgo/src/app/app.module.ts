@@ -13,6 +13,8 @@ import { VideoFetchService } from './video-fetch.service';
 import { ExamfetchService } from './examfetch.service';
 import { ModulefetchService } from './modulefetch.service';
 
+import { PostExamAnswersService } from './post-exam-answers.service';
+
 import { DocResolve } from './doc-resolve';
 import { ExamResolve } from './exam-resolve';
 import { PptResolve } from './ppt-resolve';
@@ -39,6 +41,8 @@ import { SessionGraphsComponent } from './session-graphs/session-graphs.componen
 import { AdminScreenComponent } from './admin-screen/admin-screen.component';
 import { CrumbsComponent } from './crumbs/crumbs.component';
 import { PreventDefaultDirective } from './prevent-default.directive';
+import { ModalContentComponent } from './user-screen/user-screen.component';
+import { UserReportComponent } from './user-report/user-report.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +58,9 @@ import { PreventDefaultDirective } from './prevent-default.directive';
     SessionGraphsComponent,
     AdminScreenComponent,
     CrumbsComponent,
-    PreventDefaultDirective
+    PreventDefaultDirective,
+    UserReportComponent,
+    ModalContentComponent  
   ],
   imports: [
     BrowserModule,
@@ -75,9 +81,11 @@ import { PreventDefaultDirective } from './prevent-default.directive';
     ExamResolve, 
     PptResolve, 
     VideoResolve, 
-    DataService
+    DataService,
+    PostExamAnswersService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [UserReportComponent, ModalContentComponent]
 })
 export class AppModule { }
 

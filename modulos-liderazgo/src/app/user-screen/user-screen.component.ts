@@ -5,6 +5,13 @@ import { SessionSlideshowComponent} from '../session-slideshow/session-slideshow
 import { Router, Resolve, ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 import { NgClass } from '@angular/common';
 import { AppComponent } from '../app.component';
+import { UserReportComponent } from '../user-report/user-report.component';
+
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+
+import { Chart } from  'chart.js';
+
 
 declare var Reveal:any;
 
@@ -15,17 +22,45 @@ declare var Reveal:any;
   styleUrls: ['./user-screen.component.css']
 })
 export class UserScreenComponent implements OnInit {
+  
+  bsModalRef: BsModalRef;
 
   isOn: boolean = true;
   modules: { 'sessionReached': 0}
   modnum = 1;
   currentStep = 1;
 
-  constructor(private moduleFetch: ModulefetchService, private data: DataService, private router: Router, public appVars: AppComponent) { }
+  constructor(private moduleFetch: ModulefetchService, private data: DataService, private router: Router, public appVars: AppComponent,
+  			private modalService: BsModalService) { }
+
 
 	getModules(): any {
 		return this.moduleFetch.getModules();
 	}
+
+	openModalWithComponent() {
+
+		var config = {
+		    animated: true,
+		    keyboard: true,
+		    backdrop: true,
+		    ignoreBackdropClick: false
+	  	};
+
+	    const initialState = {
+	      list: [
+	        'Open a modal with component',
+	        'Pass your data',
+	        'Do something else',
+	        '...'
+	      ],	      
+	      title: 'Reporte de Progreso'
+	    };
+	    this.bsModalRef = this.modalService.show(ModalContentComponent, Object.assign({initialState}, config, { class: 'gray clearfix' }));
+	    this.bsModalRef.content.closeBtnName = 'Close';	
+	    console.log(this.bsModalRef)
+	  }
+	
 
 	goTo(val) {
 
@@ -161,4 +196,188 @@ export class UserScreenComponent implements OnInit {
 
   }
 
+}
+
+
+@Component({
+  selector: 'modal-content',
+  templateUrl: '../user-report/user-report.component.html'
+  
+})
+ 
+export class ModalContentComponent implements OnInit {
+  title: string;
+  closeBtnName: string;
+  
+  // Chart arrays declaration.
+  radar: any[] = [];
+  barEvolucion: any[] = [];
+  barDias: any[] = [];
+  barIntentos: any[] = [];
+  
+
+  // Chart data arrays declaration
+  radarData: any[] = [];
+  barEvolucionData: any[] = [];
+  barDiasData: any[] = [];
+  barIntentosData: any[] = [];
+
+  // Hardcoded chart legend
+  labels = ['Comunicación Asertiva', 'Enfoque a la Tarea', 'Gestion del Cambio', 'Gestion del Tiempo', 'Supervisión Efectiva',
+	             'Servicio al Cliente', 'Gestion de Talento Humano', 'Trabajo en Equipo', 'Liderazgo', 'Analisis de Problemas y Toma de Decisiones',
+	              'Confrontación de Equipos Efectiva', 'Equipos de Alto Rendimiento'];
+  numLabels = [1,2,3,4,5,6,7,8,9,10,11,12];
+ 
+ 		
+  constructor(public bsModalRef: BsModalRef) {}
+ 
+  ngOnInit() {
+  	this.radar = new Chart('radar', {
+	        type: 'radar',
+	        data: {
+	            labels: this.labels,
+	            datasets: [{
+	                data: [20, 10, 4, 25, 9, 30, 12, 15, 20],
+	                label: 'Calificaciones por Modulo',
+	                backgroundColor: '#00ff1a96',
+	                borderColor: 'rgb(17, 255, 73)',
+	                lineTension: .2,
+	                pointRadius: 10
+
+	            }]
+	        },        
+	    });
+
+  	this.barEvolucion = new Chart('barEvolucion',{
+  			type: 'bar',
+                data: {
+   	  		labels: this.numLabels,
+                 options: {
+        legend: {
+            labels: {
+                // This more specific font property overrides the global property
+                fontColor: 'white'
+            }
+        }
+    },
+            datasets: [{                
+                label: '%',
+                backgroundColor: '#0d4c92',
+                borderColor: '#7A0047',
+                borderWidth: 1,
+                data: [
+                    80,90,60,100,80,30,94,23,54,65,12,64
+                ]
+            }]
+   },
+                options: {
+                	scales: {
+				        yAxes: [{
+				            ticks: {
+				                beginAtZero: true
+				            }
+				        }]
+				    },
+                    responsive: true,
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Evolución por Módulos'
+                    }
+                }
+
+
+  	});
+
+  	this.barDias = new Chart('barDias',{
+  			type: 'bar',
+                data: {
+   	  		labels: this.numLabels,
+                 options: {
+        legend: {
+            labels: {
+                // This more specific font property overrides the global property
+                fontColor: 'white'
+            }
+        }
+    },
+            datasets: [{                
+                label: 'Días',
+                backgroundColor: '#0d4c92',
+                borderColor: '#7A0047',
+                borderWidth: 1,
+                data: [
+                    80,90,60,100,80,30,94,23,54,65,12,64
+                ]
+            }]
+   },
+                options: {
+                	scales: {
+				        yAxes: [{
+				            ticks: {
+				                beginAtZero: true
+				            }
+				        }]
+				    },
+                    responsive: true,
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Días usados para cerrar modulo'
+                    }
+                }
+
+
+  	});
+
+  	this.barIntentos = new Chart('barIntentos',{
+  			type: 'bar',
+                data: {
+   	  		labels: this.numLabels,
+                 options: {
+        legend: {
+            labels: {
+                // This more specific font property overrides the global property
+                fontColor: 'white'
+            }
+        }
+    },
+            datasets: [{                
+                label: 'Intentos',
+                backgroundColor: '#0d4c92',
+                borderColor: '#7A0047',
+                borderWidth: 1,
+                data: [
+                    80,90,60,100,80,30,94,23,54,65,12,64
+                ]
+            }]
+   },
+                options: {
+                	scales: {
+				        yAxes: [{
+				            ticks: {
+				                beginAtZero: true
+				            }
+				        }]
+				    },
+                    responsive: true,
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: 'Veces realizado el examen hasta aprobar'
+                    }
+                }
+
+
+  	});
+
+  	console.log(this.radar)
+
+  }
 }
