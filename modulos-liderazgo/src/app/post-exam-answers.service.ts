@@ -14,7 +14,7 @@ export class PostExamAnswersService {
   response: {}
 
   postExamScore (SessionNumber, Score) {
-  	var postExamScoreUrl = 'http://localhost:9000/postexamscore/';  // URL to web api
+  	var postExamScoreUrl = 'http://localhost:9001/postexamscore/';  // URL to web api
   	return this.http.post(postExamScoreUrl, {"sessionNumber": SessionNumber, "Score": Score},
   		{headers: new HttpHeaders().set('Authorization', 'JWT ' + localStorage.getItem("jwtToken") ) }
   		)

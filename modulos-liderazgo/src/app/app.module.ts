@@ -14,6 +14,7 @@ import { ExamfetchService } from './examfetch.service';
 import { ModulefetchService } from './modulefetch.service';
 
 import { PostExamAnswersService } from './post-exam-answers.service';
+import { UserreportfetchService } from './userreportfetch.service';
 
 import { DocResolve } from './doc-resolve';
 import { ExamResolve } from './exam-resolve';
@@ -82,7 +83,8 @@ import { UserReportComponent } from './user-report/user-report.component';
     PptResolve, 
     VideoResolve, 
     DataService,
-    PostExamAnswersService
+    PostExamAnswersService,
+    UserreportfetchService
   ],
   bootstrap: [AppComponent],
   entryComponents: [UserReportComponent, ModalContentComponent]

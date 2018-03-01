@@ -7,6 +7,7 @@ import { PostExamAnswersService } from '../post-exam-answers.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router, Resolve, RouterStateSnapshot, ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 declare var Reveal:any;
+declare var $:any;
 
 @Component({
   selector: 'app-session-exam',
@@ -14,7 +15,7 @@ declare var Reveal:any;
   styleUrls: ['./session-exam.component.css']
 })
 export class SessionExamComponent implements OnInit {
-	inputanswer: any[] = [0];
+	inputAnswer: string = '';
 	exam = {
 		"questions": []
 	}
@@ -30,25 +31,17 @@ export class SessionExamComponent implements OnInit {
 	  return this.examFetch.getExam(1);
 	} 
 
+
+	// This function is deprecated, it is still called, but the array es later on overridden.
 	answer(num,answer) {
 		// This function appends each question number, correct answer and its respective  user answer while user is taking the exam.
 		// "ca" stands for Correct Answer
-		// "ua" stands for User Answer
-		var radios = document.getElementsByName('q_answer'+num);
-		for( let i = 0; i < radios.length; i++ ) {
-			console.log((<HTMLInputElement>radios[i]))
-		        if( (<HTMLInputElement>radios[i]).checked ) {
-		            console.log((<HTMLInputElement>radios[i]).value);
-		            answer = (<HTMLInputElement>radios[i]).value;
-		        }
-	    }
+		// "ua" stands for User Answer		
 		this.examJSON.questions[num] = {'ua':answer, 'ca': parseInt(this.exam.questions[num][2])};
-		console.log(this.examJSON)
-
 	} 
 
 	calcResult(examAnswers){
-
+		// As function name states, it calculates the final score of the exam.
 		let answerLen = this.examJSON.questions.length;
 		var points = 0;
 		var totalScore = 0;
@@ -57,25 +50,25 @@ export class SessionExamComponent implements OnInit {
 		this.data.currentSession.subscribe(value => {
 		  	sessionNumber = value;
 		 })
-
 		// minScore is the minimum amount of correct answers user must get.
 		var minScore = Math.trunc(answerLen*0.7);
-
 		for(let i = 0; i < answerLen ; i++){
 			// Compares user answer and correct answer
-			if(this.examJSON.questions[i].ua == this.examJSON.questions[i].ca){
-				points++;
+			try {
+				if(this.examJSON.questions[i].ua == this.examJSON.questions[i].ca){
+					points++;
+				}
+			}
+			catch(err) {
+				console.log(err)
 			}			
-		}
-		console.log(answerLen)
-		console.log(points)
+		}	
 
 		totalScore = Math.round(((points/answerLen)*100));
 		var set = this.postAnswers.postExamScore(sessionNumber, totalScore);
 			set.subscribe(data => {      				
 				console.log(data)
 			})
-
 		if (points > minScore) {
 			// User passed the exam, post score to DB.
 			alert("Examen Aprobado, ahora puedes continuar al siguiente modulo!")
@@ -96,10 +89,10 @@ export class SessionExamComponent implements OnInit {
 			this.examJSON.questions.push(null); 
 		}
 		Reveal.initialize()
-		this.initReveal(this.router)
+		this.initReveal(this.router, LEN)
   	}
 
-	initReveal(this, router): void {
+	initReveal(this, router, LEN): void {
 		var vars = this;		
 		Reveal.initialize({// The "normal" size of the presentation, aspect ratio will be preserved
 			// when the presentation is scaled to fit different resolutions
@@ -195,15 +188,25 @@ export class SessionExamComponent implements OnInit {
 			// Number of slides away from the current that are visible			
 	});
 
-	Reveal.addEventListener( 'slidechanged', function( event ) {
-	// event.previousSlide, event.currentSlide, event.indexh, event.indexv
+	Reveal.addEventListener( 'slidechanged', function( event ) {	
 		if (Reveal.isLastSlide()) {
 			// code...
-			console.log(vars)
 			alert('Fin del modulo');
+
+			let userAnswers: any[]  = []
+			$(':radio:checked').each(function(){
+			   
+			userAnswers.unshift( $(this).val() )			
+
+			// With this Jquery loop we make sure all of the selected values are sent.
+			for(var num = 0; LEN > num; num++){
+				vars.examJSON.questions[num] = {'ua':userAnswers[num], 'ca': parseInt(vars.exam.questions[num][2])};
+			}			   
+			   
+			});
 			vars.calcResult(vars.examJSON);
-			console.log("examJson",vars.examJSON);
-			/// Answers input from the user should be in => this.examJSON
+			
+			/// Answers input from the user should be in => vars.examJSON
 			/// if one of the answers inside the'questions' array is NULL it means the user did not answer that question.
 
 		}

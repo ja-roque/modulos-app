@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModulefetchService } from '../modulefetch.service';
+import { UserreportfetchService } from '../userreportfetch.service';
+
 import { DataService } from '../data.service';
 import { SessionSlideshowComponent} from '../session-slideshow/session-slideshow.component';
 import { Router, Resolve, ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
@@ -34,9 +36,11 @@ export class UserScreenComponent implements OnInit {
   			private modalService: BsModalService) { }
 
 
-	getModules(): any {
-		return this.moduleFetch.getModules();
+	getModules(sessionNumber): any {
+		return this.moduleFetch.getModules(sessionNumber);
 	}
+
+
 
 	openModalWithComponent() {
 
@@ -66,7 +70,7 @@ export class UserScreenComponent implements OnInit {
 
 		let mayGotoMod = true;
 		// Verify if the module is enabled for the current user.
-		this.getModules().subscribe(data => {      
+		this.getModules(this.modnum).subscribe(data => {      
 			this.modules = data			
 			console.log(this.modules)
 
@@ -229,23 +233,45 @@ export class ModalContentComponent implements OnInit {
   numLabels = [1,2,3,4,5,6,7,8,9,10,11,12];
  
  		
-  constructor(public bsModalRef: BsModalRef) {}
+  constructor(public bsModalRef: BsModalRef, private reportFetch: UserreportfetchService, ) {}
+
+	getUserReport(): any {
+		return this.reportFetch.getUserReport();
+	}
  
-  ngOnInit() {
+	ngOnInit() {
+
+	this.getUserReport().subscribe(data => {      		
+		console.log(data)
+		this.radarData 			= data.scoresList
+		this.barEvolucionData 	= data.scoresList
+		this.barDiasData		= data.elapsedDaysList
+		this.barIntentosData	= data.attemptsList
+	
+
   	this.radar = new Chart('radar', {
 	        type: 'radar',
 	        data: {
 	            labels: this.labels,
 	            datasets: [{
-	                data: [20, 10, 4, 25, 9, 30, 12, 15, 20],
+	                data: this.radarData,
 	                label: 'Calificaciones por Modulo',
 	                backgroundColor: '#00ff1a96',
 	                borderColor: 'rgb(17, 255, 73)',
-	                lineTension: .2,
-	                pointRadius: 10
+	                lineTension: .1,
+	                pointRadius: 10,
+	                pointHitRadius: 10
 
 	            }]
-	        },        
+	        }, 
+	         options: {
+			    scale: {
+			        ticks: {
+			            // changes here
+			            max: 100
+			        }
+			    }
+			};       
 	    });
 
   	this.barEvolucion = new Chart('barEvolucion',{
@@ -265,15 +291,14 @@ export class ModalContentComponent implements OnInit {
                 backgroundColor: '#0d4c92',
                 borderColor: '#7A0047',
                 borderWidth: 1,
-                data: [
-                    80,90,60,100,80,30,94,23,54,65,12,64
-                ]
+                data: this.barEvolucionData
             }]
    },
                 options: {
                 	scales: {
 				        yAxes: [{
 				            ticks: {
+				            	suggestedMax: 100,
 				                beginAtZero: true
 				            }
 				        }]
@@ -308,15 +333,14 @@ export class ModalContentComponent implements OnInit {
                 backgroundColor: '#0d4c92',
                 borderColor: '#7A0047',
                 borderWidth: 1,
-                data: [
-                    80,90,60,100,80,30,94,23,54,65,12,64
-                ]
+                data: this.barDiasData
             }]
    },
                 options: {
                 	scales: {
 				        yAxes: [{
 				            ticks: {
+				            	suggestedMax: 20,
 				                beginAtZero: true
 				            }
 				        }]
@@ -351,15 +375,14 @@ export class ModalContentComponent implements OnInit {
                 backgroundColor: '#0d4c92',
                 borderColor: '#7A0047',
                 borderWidth: 1,
-                data: [
-                    80,90,60,100,80,30,94,23,54,65,12,64
-                ]
+                data: this.barIntentosData
             }]
    },
                 options: {
                 	scales: {
 				        yAxes: [{
 				            ticks: {
+				            	suggestedMax: 20,
 				                beginAtZero: true
 				            }
 				        }]
@@ -379,5 +402,6 @@ export class ModalContentComponent implements OnInit {
 
   	console.log(this.radar)
 
+  }
   }
 }
