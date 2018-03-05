@@ -9,6 +9,58 @@ background: linear-gradient(135deg, #1e5799 0%,#2989d8 16%,#207cca 70%,#128ae5 1
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#128ae5',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
+@media (max-width: 500px) {
+  .reveal .controls {
+    bottom: 85px !important;
+  }
+
+  .breadcrumb {
+    position: relative;
+    bottom: 50px;
+  }
+
+  .roundImg{
+    position: relative;
+    width: 50%;
+    right: -25% !important;
+  }
+
+  .centeredStart {
+    bottom: 110% !important;
+  }
+
+
+}
+
+@media (max-width: 380px) {
+  .roundImg{
+    position: relative;
+    width: 50%;
+    right: -25% !important;
+  }
+
+  .centeredStart {
+    bottom: 110% !important;
+  }
+
+  .reveal .controls {
+    bottom: 95px !important;
+  }
+
+  .breadcrumb {
+    display: flex !important;
+    position: relative;
+    bottom: 50px;
+    width: 100vw !important;
+  }
+
+  .breadcrumb > div {
+    width: 95px !important;
+  }
+
+
+}
+
 .topBar{
 	height: 70px; 
 	background-color: #2D3E50;
@@ -19,28 +71,24 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
 }
 
 .roundLogo{
-	border-radius: 50%;
-	/*background: #2D3E50;*/
-	height: 350px;
-	width: 350px;
-
-	position: relative;
-
-	margin-top: 30%;
-	margin-left: auto;
-	margin-right: auto;
+/*border: 3pt solid red;*/
 }
 
 .roundHeadLogo {
-	max-width: 110%;
-    position: absolute;
-    top: -30%;
+	max-width: 100%;
+    position: relative;
     z-index: 2;
+}
+
+.roundImg {
+  position: relative;
+    top: -65px;
+    right: -10%;
+
 }
 
 .roundHeadLogoRel {
 	max-width: 100%;
-    top: -10%;
     z-index: 2;
 }
 
@@ -79,6 +127,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
   right:0;
 }
 
+
+
 .progress {
   top:0;
 }
@@ -87,4 +137,34 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
   height: 90%;
   width: 90%;
   /*overflow-y: auto;*/
+}
+
+.flex {
+  display:flex;
+  justify-content: flex-end;
+
+}
+
+.right {
+  text-align: right;
+}
+
+.f1 {
+  flex:1;
+}
+
+.f2 {
+  flex:2;
+}
+
+.f3 {
+  flex:3;
+}
+
+.f4 {
+  flex:4;
+}
+
+.f5 {
+  flex:5;
 }
