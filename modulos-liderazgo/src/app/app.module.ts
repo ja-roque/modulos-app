@@ -12,9 +12,12 @@ import { PresentationfetchService } from './presentationfetch.service';
 import { VideoFetchService } from './video-fetch.service';
 import { ExamfetchService } from './examfetch.service';
 import { ModulefetchService } from './modulefetch.service';
+import { AllreportsFetchService } from './allreports-fetch.service';
+import { AllusersFetchService } from './allusers-fetch.service';
 
 import { PostExamAnswersService } from './post-exam-answers.service';
 import { UserreportfetchService } from './userreportfetch.service';
+import { AuthGuardService } from './auth-guard.service';
 
 import { DocResolve } from './doc-resolve';
 import { ExamResolve } from './exam-resolve';
@@ -61,7 +64,7 @@ import { UserReportComponent } from './user-report/user-report.component';
     CrumbsComponent,
     PreventDefaultDirective,
     UserReportComponent,
-    ModalContentComponent  
+    ModalContentComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +87,10 @@ import { UserReportComponent } from './user-report/user-report.component';
     VideoResolve, 
     DataService,
     PostExamAnswersService,
-    UserreportfetchService
+    UserreportfetchService,
+    AuthGuardService,
+    AllreportsFetchService,
+    AllusersFetchService
   ],
   bootstrap: [AppComponent],
   entryComponents: [UserReportComponent, ModalContentComponent]

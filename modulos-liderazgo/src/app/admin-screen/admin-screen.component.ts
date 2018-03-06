@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AllreportsFetchService } from '../allreports-fetch.service';
+import { AllusersFetchService } from '../allusers-fetch.service';
+
 
 @Component({
   selector: 'app-admin-screen',
@@ -6,14 +9,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-screen.component.css']
 })
 export class AdminScreenComponent implements OnInit {
+  users: any[] = []
 
-  constructor() { }
+  constructor(private allUsersService: AllusersFetchService, private allReportsService: AllreportsFetchService) { }
+
+  getAllUsers(): any {
+  		console.log(this.allUsersService)
+		return this.allUsersService.getAllUsers();
+	}
 
   goToGraph(graphId): any {
 		
 	}
   
   ngOnInit() {
+  	
+  	this.getAllUsers().subscribe(value => {
+  		console.log(value)
+  		this.users = value}
+	)
   }
 
 }

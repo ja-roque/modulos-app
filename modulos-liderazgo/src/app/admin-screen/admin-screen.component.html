@@ -19,38 +19,20 @@
         	</div>
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Resumen</a></li>
-            <li><a href="#">Graficos disponibles:</a>
+            <li><a href="#">Individuales :</a>
               <div class="list-group" style="overflow-y: scroll; height: 400px">
                 
-           <!--      <li class="dropdown"> -->
-                <button type="button" data-toggle="dropdown" class="availableModules list-group-item list-group-item-action dropdown-toggle active" (click)="goToGraph(1)">Lineal</button>
+
+                <button *ngFor="let user of users; let uNum = index" type="button" data-toggle="dropdown" class="availableModules list-group-item list-group-item-action dropdown-toggle" (click)="goToGraph(1)">{{user.firstname}} {{user.lastname}}</button>
                 <!-- <ul class="dropdown-menu" style="left: 5%; width: 90%;">
                 <li><a href="#">Presentacion</a></li>
                 <li><a href="#">Lectura</a></li>
                 <li><a href="#">Video</a></li>
                 <li><a href="#">Examen</a></li>
                 </ul>
-                </li> -->           
-                <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goToGraph(2)">Barras</button>
-                <button type="button" class="availableModules list-group-item list-group-item-action" (click)="goToGraph(3)">Circular</button>
-                
+                </li> -->                                                        
               </div>
-            </li>
-            <!-- <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuarios<b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">CO</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li> -->
-            <li><a href="#">Contenido</a></li>
-            <li><a href="#">Usuarios</a></li>
-            <li><a href="#">Contactar<span class="badge">o</span></a></li>
+            </li>            
           </ul>
         </div><!--/.nav-collapse -->
       </div>

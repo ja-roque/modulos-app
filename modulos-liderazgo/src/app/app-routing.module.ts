@@ -14,10 +14,13 @@ import { SessionGraphsComponent } from './session-graphs/session-graphs.componen
 import { AdminScreenComponent } from './admin-screen/admin-screen.component';
 //  ==============================================
 
+// Route Guards =================================
 import { DocResolve } from './doc-resolve';
 import { PptResolve } from './ppt-resolve';
 import { VideoResolve } from './video-resolve';
 import { ExamResolve } from './exam-resolve';
+
+import { AuthGuardService as AuthGuard } from './auth-guard.service';
 
 const routes: Routes = [
   { path: '', component: LandingScreenComponent },
@@ -30,7 +33,7 @@ const routes: Routes = [
       }
     ]
   },
-  { path: 'user', component: UserScreenComponent,
+  { path: 'user', component: UserScreenComponent, canActivate: [AuthGuard],
   	children: [
       {
           path: 'welcome',

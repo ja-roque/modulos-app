@@ -17,5 +17,3 @@ export class ExamResolve implements Resolve<any> {
     return this.examFetchService.getExam(this.num);
   }
 }
-
-

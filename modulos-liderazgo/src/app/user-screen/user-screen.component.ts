@@ -25,15 +25,18 @@ declare var Reveal:any;
 })
 export class UserScreenComponent implements OnInit {
   
-  bsModalRef: BsModalRef;
-
+  bsModalRef: 	BsModalRef;
   isOn: boolean = true;
-  modules: { 'sessionReached': 0}
-  modnum = 1;
-  currentStep = 1;
+  modules: 		{ 'sessionReached': 0}
+  modnum 		= 1;
+  currentStep 	= 1;
 
-  constructor(private moduleFetch: ModulefetchService, private data: DataService, private router: Router, public appVars: AppComponent,
-  			private modalService: BsModalService) { }
+	constructor(private moduleFetch: 	ModulefetchService, 
+				private data: 			DataService, 
+				private router: 		Router, 
+				public appVars: 		AppComponent,
+				private modalService: 	BsModalService
+	) { }
 
 
 	getModules(sessionNumber): any {
@@ -100,6 +103,10 @@ export class UserScreenComponent implements OnInit {
   ngOnInit() {
 
   	this.data.currentSession.subscribe(value => this.modnum = value)  	
+  	this.getModules(this.modnum).subscribe(data => {      
+			// This method is ran on the on-init to make sure that there a start and end date on user end.
+			console.log('yup, it ran', data)
+	}
 
 	Reveal.initialize({// The "normal" size of the presentation, aspect ratio will be preserved
 			// when the presentation is scaled to fit different resolutions
@@ -210,26 +217,36 @@ export class UserScreenComponent implements OnInit {
 })
  
 export class ModalContentComponent implements OnInit {
-  title: string;
+  title: 		string;
   closeBtnName: string;
   
   // Chart arrays declaration.
-  radar: any[] = [];
+  radar: 		any[] = [];
   barEvolucion: any[] = [];
-  barDias: any[] = [];
-  barIntentos: any[] = [];
+  barDias: 		any[] = [];
+  barIntentos: 	any[] = [];
   
 
   // Chart data arrays declaration
-  radarData: any[] = [];
+  radarData: 		any[] = [];
   barEvolucionData: any[] = [];
-  barDiasData: any[] = [];
-  barIntentosData: any[] = [];
+  barDiasData: 		any[] = [];
+  barIntentosData: 	any[] = [];
 
   // Hardcoded chart legend
-  labels = ['Comunicación Asertiva', 'Enfoque a la Tarea', 'Gestion del Cambio', 'Gestion del Tiempo', 'Supervisión Efectiva',
-	             'Servicio al Cliente', 'Gestion de Talento Humano', 'Trabajo en Equipo', 'Liderazgo', 'Analisis de Problemas y Toma de Decisiones',
-	              'Confrontación de Equipos Efectiva', 'Equipos de Alto Rendimiento'];
+  labels = ['Comunicación Asertiva',
+			'Enfoque a la Tarea',
+			'Gestion del Cambio',
+			'Gestion del Tiempo',
+			'Supervisión Efectiva',
+			'Servicio al Cliente',
+			'Gestion de Talento Humano',
+			'Trabajo en Equipo',
+			'Liderazgo',
+			'Analisis de Problemas y Toma de Decisiones',
+			'Confrontación de Equipos Efectiva',
+			'Equipos de Alto Rendimiento'];
+
   numLabels = [1,2,3,4,5,6,7,8,9,10,11,12];
  
  		
@@ -243,10 +260,17 @@ export class ModalContentComponent implements OnInit {
 
 	this.getUserReport().subscribe(data => {      		
 		console.log(data)
-		this.radarData 			= data.scoresList
-		this.barEvolucionData 	= data.scoresList
-		this.barDiasData		= data.elapsedDaysList
-		this.barIntentosData	= data.attemptsList
+		this.radarData 			= data.reporte.scoresList
+		this.barEvolucionData 	= data.reporte.scoresList
+		this.barDiasData		= data.reporte.elapsedDaysList
+		this.barIntentosData	= data.reporte.attemptsList
+
+		this.nombre				= data.perfil.firstname 
+		this.apellido			= data.perfil.lastname
+		this.puesto				= data.perfil.role
+		this.area				= data.perfil.area
+		this.departamento		= data.perfil.department
+		this.anos				= data.perfil.expYears
 	
 
   	this.radar = new Chart('radar', {
