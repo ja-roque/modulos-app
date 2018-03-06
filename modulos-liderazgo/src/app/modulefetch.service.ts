@@ -14,7 +14,7 @@ export class ModulefetchService {
   response: {}
 
   getModules (sessionNumber) {
-  	var modulesUrl = 'http://localhost:9001/getusermodules/?sessionnumber=' + sessionNumber;  // URL to web api
+  	var modulesUrl = 'http://45.55.251.183/getusermodules/?sessionnumber=' + sessionNumber;  // URL to web api
   	return this.http.get(modulesUrl,
   		{headers: new HttpHeaders().set('Authorization', 'JWT ' + localStorage.getItem("jwtToken")) }
   		)
