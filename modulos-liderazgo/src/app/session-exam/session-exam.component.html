@@ -1,3 +1,28 @@
+<style type="text/css">
+	.btn-primary.active{
+		background-color: #3ec7b5;
+		border-color: ;
+	}
+</style>
+
+<div class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Static modal</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        This is static modal, backdrop click will not close it.
+        Click <b>&times;</b> to close modal.
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="reveal">
 	<div class="slides">
 		
@@ -35,9 +60,8 @@
 					          		</span>
 					          		<input type="radio" name="q_answer{{qNum}}" value="{{cNum}}" >
 					          			{{choice}}	
-				          		</div>
-				          		
-				          	</label>
+				          		</div>				          						          		
+				          	</label>	
 				          </div>
 				   </div>
 				   <div class="modal-footer text-muted">
@@ -54,35 +78,3 @@
 	</div>
 </div>
 
-<script type="text/javascript">
-	$(function(){
-    var loading = $('#loadbar').hide();
-    $(document)
-    .ajaxStart(function () {
-        loading.show();
-    }).ajaxStop(function () {
-    	loading.hide();
-    });
-    
-    $("label.btn").on('click',function () {
-    	var choice = $(this).find('input:radio').val();
-    	$('#loadbar').show();
-    	$('#quiz').fadeOut();
-    	setTimeout(function(){
-           $( "#answer" ).html(  $(this).checking(choice) );      
-            $('#quiz').show();
-            $('#loadbar').fadeOut();
-           /* something else */
-    	}, 1500);
-    });
-
-    $ans = 3;
-
-    $.fn.checking = function(ck) {
-        if (ck != $ans)
-            return 'INCORRECT';
-        else 
-            return 'CORRECT';
-    }; 
-});	
-</script>

@@ -37,11 +37,11 @@
         			<img class="roundHeadLogoRel" src="http://45.55.251.183/content/logos/lacthosa.png">
         		</div>
         	</div>
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Resumen</a></li>
-            <li style="padding-bottom: 100vh"><a href="#">Modulos disponibles:</a>
+          <ul class="nav navbar-nav" style="height: 100vh">
+            <li class="active"><a >Resumen</a></li>
+            <li style="margin-bottom: 10px;"> <a >Modulos disponibles:</a>
               <div class="list-group">
-                <div class="moduleBtns" style="height: 50vh">
+                <div class="moduleBtns" style="height: 40vh">
            <!--      <li class="dropdown"> -->
                 <button type="button" data-toggle="dropdown" class="availableModules list-group-item list-group-item-action dropdown-toggle " (click)="goTo(1)" [ngClass]="{'active': (modnum === 1) }">1 - Comunicación Efectiva</button>
                 <!-- <ul class="dropdown-menu" style="left: 5%; width: 90%;">
@@ -67,6 +67,11 @@
               </div>
             </li>
 
+            <li>
+              <div class="list-group">
+                <button type="button" style="background-color: #ffca00" class="availableModules list-group-item list-group-item-action" (click)="openModalWithComponent()"><span class="glyphicon glyphicon glyphicon-dashboard"   aria-hidden="true"></span> Reporte de Progreso </button>
+              </div>
+            </li>
     
             
 

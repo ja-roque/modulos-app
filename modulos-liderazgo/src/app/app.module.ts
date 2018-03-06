@@ -4,12 +4,20 @@ import { NgModule } from '@angular/core';
 import { AlertModule } from 'ngx-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 
+import { ModalModule } from 'ngx-bootstrap';
+
 import { AuthService } from './auth.service';
 import { DocfetchService } from './docfetch.service';
 import { PresentationfetchService } from './presentationfetch.service';
 import { VideoFetchService } from './video-fetch.service';
 import { ExamfetchService } from './examfetch.service';
 import { ModulefetchService } from './modulefetch.service';
+import { AllreportsFetchService } from './allreports-fetch.service';
+import { AllusersFetchService } from './allusers-fetch.service';
+
+import { PostExamAnswersService } from './post-exam-answers.service';
+import { UserreportfetchService } from './userreportfetch.service';
+import { AuthGuardService } from './auth-guard.service';
 
 import { DocResolve } from './doc-resolve';
 import { ExamResolve } from './exam-resolve';
@@ -37,6 +45,8 @@ import { SessionGraphsComponent } from './session-graphs/session-graphs.componen
 import { AdminScreenComponent } from './admin-screen/admin-screen.component';
 import { CrumbsComponent } from './crumbs/crumbs.component';
 import { PreventDefaultDirective } from './prevent-default.directive';
+import { ModalContentComponent } from './user-screen/user-screen.component';
+import { UserReportComponent } from './user-report/user-report.component';
 
 @NgModule({
   declarations: [
@@ -52,14 +62,17 @@ import { PreventDefaultDirective } from './prevent-default.directive';
     SessionGraphsComponent,
     AdminScreenComponent,
     CrumbsComponent,
-    PreventDefaultDirective
+    PreventDefaultDirective,
+    UserReportComponent,
+    ModalContentComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AlertModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ModalModule.forRoot()
   ],
   providers: [
     AuthService, 
@@ -72,9 +85,15 @@ import { PreventDefaultDirective } from './prevent-default.directive';
     ExamResolve, 
     PptResolve, 
     VideoResolve, 
-    DataService
+    DataService,
+    PostExamAnswersService,
+    UserreportfetchService,
+    AuthGuardService,
+    AllreportsFetchService,
+    AllusersFetchService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [UserReportComponent, ModalContentComponent]
 })
 export class AppModule { }
 

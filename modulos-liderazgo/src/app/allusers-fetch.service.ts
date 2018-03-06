@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Injectable()
-export class ModulefetchService {
+export class AllusersFetchService {
 
   constructor( 
   	private http: HttpClient,
@@ -13,8 +13,8 @@ export class ModulefetchService {
 
   response: {}
 
-  getModules (sessionNumber) {
-  	var modulesUrl = 'http://localhost:9001/getusermodules/?sessionnumber=' + sessionNumber;  // URL to web api
+  getAllUsers() {
+  	var modulesUrl = 'http://localhost:9001/getallusers/';  // URL to web api
   	return this.http.get(modulesUrl,
   		{headers: new HttpHeaders().set('Authorization', 'JWT ' + localStorage.getItem("jwtToken")) }
   		)

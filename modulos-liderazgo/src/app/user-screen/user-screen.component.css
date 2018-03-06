@@ -20,6 +20,10 @@
   }
 }
 
+.modal_xlg{
+  width: auto !important;
+}
+
 
 .bs-wizard{
   position: absolute;

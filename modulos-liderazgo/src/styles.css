@@ -95,18 +95,32 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
 
 /*BOOTSTRAP MODAL CENTERING FIX*/
 .modal-dialog {
-  position:absolute;
+  position:absolute !important;
   top:50% !important;
   transform: translate(0, -50%) !important;
   -ms-transform: translate(0, -50%) !important;
   -webkit-transform: translate(0, -50%) !important;
-  margin:auto 5%;
-  width:90%;
+  margin:auto 2.5% !important;
+  width: 95% !important;
   height:80%;
 }
+
+.modal-dialog-login {
+  position:absolute !important;
+  top:50% !important;
+  transform: translate(-50%, -50%) !important;
+  -ms-transform: translate(-50%, -50%) !important;
+  -webkit-transform: translate(-50%, -50%) !important;
+  left: 50%;
+  max-width: 100%;  
+  width: 600px !important;
+  height:80%;
+}
+
+
 .modal-content {
-  min-height:425px;
-  position:absolute;
+  
+  /*position:absolute !important;*/
   top:0;
   bottom:0;
   left:0;
@@ -114,14 +128,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
 }
 .modal-body {
   position:absolute;
-  top:45px; // height of header
-  bottom:45px;  // height of footer
+  /*top:45px; // height of header*/
+  /*bottom:45px;  // height of footer*/
   left:0;
   right:0;
   overflow-y:auto;
 }
 .modal-footer {
-  position:absolute;
   bottom:0;
   left:0;
   right:0;
@@ -139,6 +152,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
   /*overflow-y: auto;*/
 }
 
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
 .flex {
   display:flex;
   justify-content: flex-end;

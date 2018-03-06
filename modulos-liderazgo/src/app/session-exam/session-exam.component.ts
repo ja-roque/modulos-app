@@ -1,8 +1,13 @@
 import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { ExamfetchService } from '../examfetch.service';
+import { DataService } from '../data.service';
+
+
+import { PostExamAnswersService } from '../post-exam-answers.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router, Resolve, RouterStateSnapshot, ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 declare var Reveal:any;
+declare var $:any;
 
 @Component({
   selector: 'app-session-exam',
@@ -10,6 +15,7 @@ declare var Reveal:any;
   styleUrls: ['./session-exam.component.css']
 })
 export class SessionExamComponent implements OnInit {
+	inputAnswer: string = '';
 	exam = {
 		"questions": []
 	}
@@ -17,47 +23,76 @@ export class SessionExamComponent implements OnInit {
 	  "questions": []
 	} // shows question number and the answers from the user.
 
-  constructor(private examFetch: ExamfetchService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private examFetch: ExamfetchService, private postAnswers: PostExamAnswersService, 
+  			  private route: ActivatedRoute, private router: Router, private data: DataService) { }
 
   	getExams(): any {
+  	   // Fetches the exams data to display in presentation.
 	  return this.examFetch.getExam(1);
 	} 
 
-	test() {
 
-
-		console.log("ASDFADSFKASDF");
-	}
-
+	// This function is deprecated, it is still called, but the array es later on overridden.
 	answer(num,answer) {
-		
-		console.log(num)
-		console.log('answer: ' + answer)
-		this.examJSON.questions[num] = answer;
-
-		console.log(this.examJSON)
-		
-
-
-		
-
-		//{num,answer,LEN}
+		// This function appends each question number, correct answer and its respective  user answer while user is taking the exam.
+		// "ca" stands for Correct Answer
+		// "ua" stands for User Answer		
+		this.examJSON.questions[num] = {'ua':answer, 'ca': parseInt(this.exam.questions[num][2])};
 	} 
+
+	calcResult(examAnswers){
+		// As function name states, it calculates the final score of the exam.
+		let answerLen = this.examJSON.questions.length;
+		var points = 0;
+		var totalScore = 0;
+		var sessionNumber;
+		
+		this.data.currentSession.subscribe(value => {
+		  	sessionNumber = value;
+		 })
+		// minScore is the minimum amount of correct answers user must get.
+		var minScore = Math.trunc(answerLen*0.7);
+		for(let i = 0; i < answerLen ; i++){
+			// Compares user answer and correct answer
+			try {
+				if(this.examJSON.questions[i].ua == this.examJSON.questions[i].ca){
+					points++;
+				}
+			}
+			catch(err) {
+				console.log(err)
+			}			
+		}	
+
+		totalScore = Math.round(((points/answerLen)*100));
+		var set = this.postAnswers.postExamScore(sessionNumber, totalScore);
+			set.subscribe(data => {      				
+				console.log(data)
+			})
+		if (points > minScore) {
+			// User passed the exam, post score to DB.
+			alert("Examen Aprobado, ahora puedes continuar al siguiente modulo!")
+		} else{
+			// User didnt pass the exam display message and reroute to exam screen.
+			alert("Examen Reprobado, para poder continuar al siguiente modulo debes repetir el examen.")
+		}
+	}
 
 	ngOnInit() {
 		// Get exam data through resolver to make sure data exists before HTML rendering occurs.
 		this.exam = this.route.snapshot.data['exam'];
-		console.log(this.exam);
+		console.log(this.exam)
+
+		// Creates the exam answers array with null values in case an answer is not selected.
 		let LEN = this.exam.questions.length;
 		for(let i = 0; i < LEN ; i++){
 			this.examJSON.questions.push(null); 
 		}
-		console.log("xmanJson",this.examJSON);
 		Reveal.initialize()
-		this.initReveal(this.router)
+		this.initReveal(this.router, LEN)
   	}
 
-	initReveal(this, router): void {
+	initReveal(this, router, LEN): void {
 		var vars = this;		
 		Reveal.initialize({// The "normal" size of the presentation, aspect ratio will be preserved
 			// when the presentation is scaled to fit different resolutions
@@ -150,18 +185,28 @@ export class SessionExamComponent implements OnInit {
 			// Parallax background size
 			parallaxBackgroundSize: '', // CSS syntax, e.g. "3000px 2000px"
 
-			// Number of slides away from the current that are visible
-			viewDistance: 3,
+			// Number of slides away from the current that are visible			
 	});
 
-	Reveal.addEventListener( 'slidechanged', function( event ) {
-	// event.previousSlide, event.currentSlide, event.indexh, event.indexv
+	Reveal.addEventListener( 'slidechanged', function( event ) {	
 		if (Reveal.isLastSlide()) {
 			// code...
-			console.log(vars)
 			alert('Fin del modulo');
-			console.log("xmanJson",vars.examJSON);
-			/// Answers input from the user should be in => this.examJSON
+
+			let userAnswers: any[]  = []
+			$(':radio:checked').each(function(){
+			   
+			userAnswers.unshift( $(this).val() )			
+
+			// With this Jquery loop we make sure all of the selected values are sent.
+			for(var num = 0; LEN > num; num++){
+				vars.examJSON.questions[num] = {'ua':userAnswers[num], 'ca': parseInt(vars.exam.questions[num][2])};
+			}			   
+			   
+			});
+			vars.calcResult(vars.examJSON);
+			
+			/// Answers input from the user should be in => vars.examJSON
 			/// if one of the answers inside the'questions' array is NULL it means the user did not answer that question.
 
 		}
