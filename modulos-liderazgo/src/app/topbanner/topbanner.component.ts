@@ -10,7 +10,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
   styleUrls: ['./topbanner.component.css']
 })
 export class TopbannerComponent implements OnInit {
-  modalRef: BsModalRef;
+  bsModalRef: BsModalRef;
 
   constructor(private appVars: AppComponent,
               private modalService:   BsModalService ) { }
@@ -18,7 +18,7 @@ export class TopbannerComponent implements OnInit {
   ngOnInit() {
   }
 
-  openInfo(template: TemplateRef<any>){
+  openInfo(template: any){
     var config = {
         animated: true,
         keyboard: true,
