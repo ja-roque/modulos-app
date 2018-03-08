@@ -21,8 +21,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
 
   .roundImg{
     position: relative;
-    width: 50%;
-    right: -25% !important;
+    width: 50%;    
   }
 
   .centeredStart {
@@ -36,7 +35,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
   .roundImg{
     position: relative;
     width: 50%;
-    right: -25% !important;
   }
 
   .centeredStart {
@@ -76,14 +74,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
 
 .roundHeadLogo {
 	max-width: 100%;
-    position: relative;
-    z-index: 2;
+  position: relative;
+  z-index: 2;
+  width: 600px;
+  margin-left: 50%;
+  transform: translateX(-50%);
 }
 
 .roundImg {
   position: relative;
-    top: -65px;
-    right: -10%;
+    top: -45px;
+    margin-left: 50%;
+    transform: translateX(-50%);
 
 }
 
