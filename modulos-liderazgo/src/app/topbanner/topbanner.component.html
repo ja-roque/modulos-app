@@ -7,6 +7,12 @@
 	.btn{
 		vertical-align: unset;
 	}
+
+	ul.bibliography li{
+		margin-top: 5px;
+	}
+
+
 </style>
 
 
@@ -24,20 +30,192 @@
 		<div class="f5 right flex" style="max-height: 70px">
 			        
             
-              <button type="button" class="btn btn-primary">Bibliografía <div class="side-icon"><img class="topbar-icon" src="assets/svg/faq.svg"></div></button>
+              <button (click)="openInfo(bibliografia)" type="button" class="btn btn-primary">Bibliografía <div class="side-icon"><img class="topbar-icon" src="assets/svg/faq.svg"></div></button>
             
             
             
-              <button type="button" class="btn btn-primary" >Metodología <div class="side-icon"><img class="topbar-icon" src="assets/svg/pyramid.svg"></div></button>
+              <button (click)="openInfo(metodologia)" type="button" class="btn btn-primary" >Metodología <div class="side-icon"><img class="topbar-icon" src="assets/svg/pyramid.svg"></div></button>
             
             
             
-              <button type="button" class="btn btn-primary" >Ayuda <div class="side-icon" style="width: 75%;"><img class="topbar-icon" src="assets/svg/email.svg"></div></button>
+              <button (click)="openInfo(ayuda)" type="button" class="btn btn-primary" >Ayuda <div class="side-icon" style="width: 75%;"><img class="topbar-icon" src="assets/svg/email.svg"></div></button>
             
 		</div>
 	</div>		
 </div>
 
+<ng-template #bibliografia>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Bibliografia</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">    
+	<ul class="bibliography">
+		<li>Bennis, Warren y Burt Nanus. Leaders: The Strategies for Taking Charge. New York: Harper & Row, 1986.</li>
+		<li>Daft, Richard L. La experiencia del liderazgo. Cengage learning. Tercera edición <br></li>
+		<li>Kouzes, James M. y Posner. Las Seis Disciplinas” La Credibilidad: Como se gana, se pierde, y porque la gente la reclama. Jossey-Bass Publishers. San Francisco.1993. pp. 51 <br></li>
+		<li>Covey, Stephen R. Los 7 hábitos de la gente altamente efectiva. Editorial Paidos, 1989., ISBN 968-853-182-0 <br></li>
+		<li>Greene, Robert y Joost Elffers "Las 48 leyes del poder" [2] <br></li>
+		<li>GONZALEZ CRUZ, T. F., GUILLÉN PARRA, M. (2000). Necesidad de liderazgo y su dimensión ética en la gestión de calidad total. 
+		Valencia: Universidad de València
+		</li>
+		<li>Landolfi, Hugo (2009). La esencia del liderazgo, Ediciones Dunken, Buenos Aires, Argentina. ISBN 978-987-02-3827</li>
+		<li>LLORENS MONTES, F. J., FUENTES FUENTES, M. M. (2005). Gestión de la calidad empresarial. Madrid: Ediciones Pirámide</li>
+		<li>MINTZBERG Power in and around Organizations, Prentice Hall, 1983</li>
+		<LI>Showalter, M. J., y Mulholland, J. A. (1992): «Continuous Improvement Strategies for Service Organizations.» Business Horizons, julio-agosto.</LI>
+		<li>PFEFFER Power in Organisations, Pitman, 1981</li>
+		<li>Luis Alberto López, Kaizen Team Building, 2016. Team Building y Liderazgo. "En busca del líder perdido"</li>
+		<li>Rafael Muñiz "Características de un líder" [3]</li>
+		<li>Síntesis del Liderazgo en un solo acrónimo"LIDERAR" [4]</li>
+
+		<li>"Our origins". VentureBeat. 2016-06-02. Retrieved 2017-12-12.</li>
+		<li> Fitzpatrick, Alex (February 12, 2016). "Udemy Thinks It's Cracked the Future of Online Education". Time. Retrieved 25 September 2016.</li>
+		<li> Lomas, Natasha. Online Learning Marketplace Udemy Raises $32M To Scale Up Internationally. TechCrunch. May 8, 2014</li>
+		<li> Carr, David F. Udemy Comes To Corporate Training Information Week. April 16, 2013</li>
+		<li> McDonald, Jon (4 October 2017). "Udemy for Business™ — How Organizations Upskill Employees to Ensure They Can Compete in the Modern Retail Marketplace". DealCrunch.com. Retrieved 15 November 2017.</li>
+		<li> Groden, Claire (June 22, 2016). "Udemy's Exodus, Amazon's Gain". Inverse. Retrieved 25 September 2016.</li>
+		<li> ABCs of Udemy. "Udemy". August 25, 2015.</li>
+		<li> Eren Bali biography. Udemy.com.</li>
+		<li> How Udemy got oversubscribed. Venture Hacks. September 10, 2010.</li>
+		<li> Roushe, Wade. Udemy Collects $1 Million to Expand Casual Learning Platform. Xconomy. August 31, 2010.</li>
+		<li> Toto, Serkan. Udemy Scores $1M In Seed Funding, Aims To Democratize Online Learning. TechCrunch. August 31, 2010.</li>
+		<li> Tsotsis, Alexia. "Crowdsourced Learning Platform Udemy Raises $3 Million From Lightbank And Others". TechCrunch.</li>
+		<li> Empson, Rip. "Online Learning Marketplace Udemy Lands $12M To Expand Its Course Catalog, Go Cross-Platform". TechCrunch.</li>
+		<li> Kolodny, Lora. Udemy Appoints Dennis Yang CEO; Eren Bali Steps Aside to Lead Product Venture Dispatch, Wall Street Journal Digital. April 22, 2014</li>
+		<li> Sailors, John. Udemy raises $32 million for online learning marketplace San Francisco Business Times. May 8, 2014</li>
+		<li> "Udemy raises $60M from Naspers to grow its online education platform globally". VentureBeat. 2016-06-02. Retrieved 2017-06-01.</li>
+		<li> "Udemy Board Appoints Kevin H. Johnson as New CEO | Udemy About". Udemy About. 2017-06-01. Retrieved 2017-06-01.</li>
+		<li> "Udemy Picks Kevin H. Johnson as New CEO". Wall Street Journal. 2017-06-02. ISSN 0099-9660. Retrieved 2018-02-07. (Subscription required (help)).</li>
+		<li> About Udemy. Udemy.com.</li>
+		<li> Finder, Alan (September 25, 2013). "A Surge in Growth for a New Kind of Online Course". New York Times. Retrieved 25 September 2016.</li>
+		<li> "What is UFO?". Udemy.</li>
+		<li> Empson, Rip. "With Over 6,000 Courses Now Live, Udemy Brings Its Learning Marketplace To iOS To Let You Study On The Go". TechCrunch. AOL. Retrieved 4 May 2013.</li>
+		<li> [1] udemy.com/teach ] Udemy Teach Page. Retrieved June 18, 2014.</li>
+		<li> Heussner, Ki Mae. "Exclusive: Udemy lands on mobile so students can learn on the go". Gigaom.</li>
+		<li> Farr, Christina. "Udemy launches its Android app to bring you online education on the go". VentureBeat.</li>
+		<li> Hockenson, Lauren. "Udemy brings its education marketplace to Android". Gigaom.</li>
+		<li> "What You Need to Know About MOOCs". Chronicle of Higher Education.</li>
+		<li> LEWIN, TAMAR. "Instruction for Masses Knocks Down Campus Walls". New York Times.</li>
+		<li> Littlefield, Jamie. "Top Massively Open Online Courses (MOOCs)". About.com.</li>
+		<li> Lynley, Matthew. Online Teaching Platform Udemy Raises $1M, Still Too Cool for School. The New York Times. August 31, 2010.</li>
+		<li> Chapman, Glenn. Online learning startup rises on US$1 mil. funding from 'angel' investors. The China Post. September 2, 2010.</li>
+		<li> Schomer, Stephanie. Udemy: A Free University for All. Fast Company. December 2, 2010.</li>
+		<li> Van Grove, Jennifer. Get a Real-Life Learning Experience in Udemy’s Virtual Classrooms. Mashable. May 13, 2010.</li>
+		<li> Sumi Das (15 May 2012). "Ivy League education free on the web". BBC Click. Retrieved 15 May 2012.</li>
+		<li> "30 Under 30". Forbes.</li>
+		<li> Eckert, Barton. Strayer Education buys Jack Welch Management Institute Washington Business Journal, November 11, 2001.</li>
+		<li> The Jack Welch Management Institute and Udemy Join Forces to Deliver Online Management Training Courses AVFN.com.</li>
+		<li> "How Udemy Is Profiting From Piracy". Medium. Retrieved 2015-11-28.</li>
+		<li> Dave Lee (2015-11-30). "Anger at 'stolen' online courses on Udemy". BBC News. Retrieved 2015-12-05.</li>
+		<li> Amar Toor (2015-11-29). "Udemy faces criticism for profiting from pirated online courses". The Verge. Retrieved 2015-12-05.</li>
+		<li> "Maintaining the integrity of our Udemy community".</li>
+		<li> Chris Hawkes (2018-02-11). "Udemy Is Infringing Upon My Content". Chris Hawkes YouTube. Retrieved 2018-02-11.</li>
+		<li>BASTARDAS BOADA, Albert (1995). Comunicación humana y paradigmas holísticos. CLAVES de razón práctica, 51, pp. 78-80.</li>
+		<li>FERRER, Argelia (2002). Periodismo científico y desarrollo: una mirada desde América Latina. Tesis doctoral.</li>
+		<li>FLORA DAVIS (1996). La comunicación no verbal. ISBN 9788420616162</li>
+		<li>CIBANAL, Luís (2006). Teoría de la comunicación humana.</li>
+		<li>ISLAS, Octavio (2006). "La era McLuhan", parteaguas teórico en las ciencias de la comunicación. Tecnológico de Monterrey, México. En Revista Mexicana de Comunicación.</li>
+		<li>GARGUREVICH REGAL, Juan (2006). ¿Para qué estudiar Periodismo?. Pontificia Universidad Católica del Perú. En Revista Palestra de la Comunicación.</li>
+		<li>OLIVAR ZÚÑIGA, Antonio (2006). Fundamentos teóricos de la comunicación. Monografías.com.</li>
+		<li>Universidad Autónoma de Santo Domingo (6 de abril de 2003). Comunicación social en América Latina. Facultad de Humanidades.</li>
+		<li>MIRALLES, Ana María (julio de 2001). El debate latinoamericano sobre la comunicación. Revista Documentos, volumen 3, No. 1, UPB, Medellín.</li>
+		<li>BARRANQUERO CARRETERO, Alejandro (1990). Progresos y regresiones. Libertad de expresión y vigencia de la teoría crítica de la comunicación en España. Universidad de Málaga.</li>
+		<li>GALINDO, Jesús (2008). Comunicación, ciencia e historia. Mcgraw hill.</li>
+		<li>ESPEJO CALA, Carmen (1998). Historia de la Comunicación escrita: (de la prehistoria a la irrupción de la imprenta): Notas para su estudio. MAD.</li>
+		<li>RUIZ ACOSTA, María José (1996). Escritura y comunicación social : historia de la comunicación escrita : definición multidisciplinar de una nueva asignatura. Alfar.</li>
+		<li>BERLOK, K. D. (2008). El proceso de la comunicación (introducción a la teoría y la práctica). El Ateneo.</li>
+		<li>Martínez Jiménez, José Antonio; Muñoz Marquina, Francisco; Sarrión Mora, Miguel Ángel (2011). «Lenguaje y comunicación». Lengua Castellana y Literatura (Akal edición). Madrid: Akal Sociedad Anónima. p. 343. ISBN 9788446033677.</li>
+		<li>Griffin, Emory A., A first look at communication theory. 3rd edition, New York: McGraw-Hill, 1997. ISBN 0-07-022822-1</li>
+		<li>Littlejohn, S. W., Theories of human communication. 7th edition, Belmont, CA: Wadsworth, 2002.</li>
+		<li>Miller, K., Communication Theories: Perspectives, processes, and contexts. 2nd edition. New York: McGraw-Hill, 2005.</li>
+		<li>Werner, E., «Cooperating Agents: A Unified Theory of Communication and Social Structure.» Distributed Artificial Intelligence, Vol. 2, L. Gasser y M. Huhns, eds., Morgan Kaufmann and Pitman Press, 1989. Abstract</li>
+		<li>Werner, E., «Toward a Theory of Communication and Cooperation for Multiagent Planning.» Theoretical Aspects of Reasoning About Knowledge: Proceedings of the Second Conference, Morgan Kaufman Publishers, pp. 129-143, 1988. Abstract PDF.</li>
+		<li>Witzany, G., Biocommunication and Natural Genome Editing. Springer Verlag, 2009.</li>
+		<li>http://www.redhucyt.oas.org/OcyT/OEA_GTZ/LIBROS/Terremoto/cap3_ter.htm</li>
+		<li>http://www.gestiopolis.com/canales2/gerencia/1/rsh2.htm</li>
+		<li>http://psicologia.laguia2000.com/general/kurt-lewin-y-la-teoria-del-campo</li>
+		<li>http://www.gestiopolis.com/canales/gerencial/articulos/69/aprenorg.htm</li>
+		<li>http://www.relaciones-humanas.net/desarrolloorganizacional.html</li>
+		<li>http://www.trabajarmejor.com.ar/sitio/articulo.php?id=orientacion_hacia_cambio_continuo_genera_habitos_competitivos</li>
+		<li>http://todosobrecambiosorganizacionales.blogspot.mx/</li>
+		<li>https://competenciasdirectivas.wordpress.com/2016/09/05/como-hacer-un-plan-de-gestion-del-cambio/</li>
+		<li>http://gestiondeproyectos-master.com/los-tres-pasos-necesarios-para-realizar-cambios-en-una-empresa/</li>
+		<li>Ezquiaga, G. (1996). Claves para orientar el desarrollo laboral. Buenos Aires:El Francotirador</li>
+		<li>Guitert, M.; Giménez, F. (2008). « El trabajo en equipo en entornos virtuales:desarrollo metodológico».</li>
+ 	</ul>
+  </div>
+
+</ng-template>
+
+<ng-template #metodologia>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Metodologia</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" style="overflow-y: unset !important;">
+    <div id="web">
+    <div id="center-sphere">
+      <img style="position: absolute; top: 25%; width: 100%" 	 src="../../assets/imgs/elearning.png">
+    </div> 
+    <div class="sphere one" >
+      <span class="text health">GI Health</span>
+      <p class="blurb">Deep v forage Thundercats selfies, shabby chic chillwave food truck fashion axe PBR&amp;B Etsy flannel High Life beard skateboard. Mixtape skateboard quinoa viral, bicycle rights tote bag Neutra Wes Anderson gentrify Tonx. </p>
+    </div>
+    <div class="sphere two" >
+      <span class="text spiritual">Spiritual</span>
+       <p class="blurb">Deep v forage Thundercats selfies, shabby chic chillwave food truck fashion axe PBR&amp;B Etsy flannel High Life beard skateboard. Mixtape skateboard quinoa viral, bicycle rights tote bag Neutra Wes Anderson gentrify Tonx. </p>
+    </div>
+    <div class="sphere three" >
+      <span class="text emotion">Emotions</span>
+       <p class="blurb">Deep v forage Thundercats selfies, shabby chic chillwave food truck fashion axe PBR&amp;B Etsy flannel High Life beard skateboard. Mixtape skateboard quinoa viral, bicycle rights tote bag Neutra Wes Anderson gentrify Tonx. </p>
+    </div>
+    <div class="sphere four" >
+      <span class="text lifestyle">Lifestyle</span>
+       <p class="blurb">Deep v forage Thundercats selfies, shabby chic chillwave food truck fashion axe PBR&amp;B Etsy flannel High Life beard skateboard. Mixtape skateboard quinoa viral, bicycle rights tote bag Neutra Wes Anderson gentrify Tonx.</p>
+    </div>
+    <div class="sphere five" >
+      <span class="text hormone">Hormones</span>
+       <p class="blurb">Deep v forage Thundercats selfies, shabby chic chillwave food truck fashion axe PBR&amp;B Etsy flannel High Life beard skateboard. Mixtape skateboard quinoa viral, bicycle rights tote bag Neutra Wes Anderson gentrify Tonx. </p>
+    </div>
+    <div class="sphere six" >
+      <span class="text immune">Immunity</span>
+       <p class="blurb">Deep v forage Thundercats selfies, shabby chic chillwave food truck fashion axe PBR&amp;B Etsy flannel High Life beard skateboard. Mixtape skateboard quinoa viral, bicycle rights tote bag Neutra Wes Anderson gentrify Tonx. </p>
+    </div>
+    <div class="sphere seven" >
+      <span class="text muscles">Musculoskeletal</span>
+       <p class="blurb">Deep v forage Thundercats selfies, shabby chic chillwave food truck fashion axe PBR&amp;B Etsy flannel High Life beard skateboard. Mixtape skateboard quinoa viral, bicycle rights tote bag Neutra Wes Anderson gentrify Tonx. </p>
+    </div>
+    <div class="sphere eight" >
+      <span class="text genes">Genes</span>
+       <p class="blurb">Deep v forage Thundercats selfies, shabby chic chillwave food truck fashion axe PBR&amp;B Etsy flannel High Life beard skateboard. Mixtape skateboard quinoa viral, bicycle rights tote bag Neutra Wes Anderson gentrify Tonx. </p>
+    </div>
+    <div class="sphere nine" >
+      <span class="text toxin">Toxins</span>
+       <p class="blurb">Deep v forage Thundercats selfies, shabby chic chillwave food truck fashion axe PBR&amp;B Etsy flannel High Life beard skateboard. Mixtape skateboard quinoa viral, bicycle rights tote bag Neutra Wes Anderson gentrify Tonx. </p>
+    </div>
+     <div class="sphere ten">
+      <span class="text nutrient">Nutrients</span>
+        <p class="blurb">Deep v forage Thundercats selfies, shabby chic chillwave food truck fashion axe PBR&amp;B Etsy flannel High Life beard skateboard. Mixtape skateboard quinoa viral, bicycle rights tote bag Neutra Wes Anderson gentrify Tonx. </p>
+    </div>
+</div>
+  </div>
+</ng-template>
+
+<ng-template #ayuda>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Ayuda=.
+  </div>
+</ng-template>
 
 
 <!-- <p>

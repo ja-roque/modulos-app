@@ -53,7 +53,7 @@
 	position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 135%;
+    bottom: 100%;
     z-index: 3;
 }
 
