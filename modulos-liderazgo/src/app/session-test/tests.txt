@@ -1,0 +1,12 @@
+<test_1>https://www.psicoactiva.com/tests/test-comunicacion.htm#test-solution</test_1>
+<test_2>https://www.pupilum.com/cuanto-sabes-de-gestion-por-procesos</test_2>
+<test_3>http://www.cepvi.com/index.php/test/test-generales/te-adaptas-al-cambio</test_3>
+<test_4>https://www.webconsultas.com/mente-y-emociones/test-de-psicologia/test-sobre-saber-organizarse-3085</test_4>
+<test_5>https://www.webconsultas.com/mente-y-emociones/test-de-psicologia/test-eres-un-lider</test_5>
+<test_6>https://www.proprofs.com/quiz-school/story.php?title=curso-atencin-de-clientes</test_6>
+<test_7>https://www.goconqr.com/p/2825847-test-para-gesti-n-de-talento-humano-quizzes</test_7>
+<test_8>http://a-jobs.com/recursos/Tests_Psicot%C3%A9cnicos/Mini_Test_de_Trabajo_En_Equipo.3.xhtml</test_8>
+<test_9>http://www.hacertest.com/personalidad/liderazgo/4/</test_9>
+<test_10>http://www.consultoriadeproceso.com.mx/Test-de-solucion-de-problemas-y-toma-de-decisiones.html</test_10>
+<test_11>https://www.ebsglobal.net/es/programmes/negotiation-quiz#endOfPage</test_11>
+<test_12>https://www.ebsglobal.net/es/programmes/negotiation-quiz#endOfPage</test_12>

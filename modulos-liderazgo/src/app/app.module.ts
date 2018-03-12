@@ -11,6 +11,9 @@ import { DocfetchService } from './docfetch.service';
 import { PresentationfetchService } from './presentationfetch.service';
 import { VideoFetchService } from './video-fetch.service';
 import { ExamfetchService } from './examfetch.service';
+import { DinamicaFetchService } from './fetchers/dinamica-fetch.service';
+import { TestFetchService } from './fetchers/test-fetch.service';
+import { BibliografiaFetchService } from './fetchers/bibliografia-fetch.service';
 import { ModulefetchService } from './modulefetch.service';
 import { AllreportsFetchService } from './allreports-fetch.service';
 import { AllusersFetchService } from './allusers-fetch.service';
@@ -23,6 +26,9 @@ import { DocResolve } from './doc-resolve';
 import { ExamResolve } from './exam-resolve';
 import { PptResolve } from './ppt-resolve';
 import { VideoResolve } from './video-resolve';
+import { DinamicaResolve } from './resolvers/dinamica-resolve';
+import { BibliografiaResolve } from './resolvers/bibliografia-resolve';
+import { TestResolve } from './resolvers/test-resolve';
 
 
 import { DataService } from './data.service';
@@ -47,6 +53,9 @@ import { CrumbsComponent } from './crumbs/crumbs.component';
 import { PreventDefaultDirective } from './prevent-default.directive';
 import { ModalContentComponent } from './user-screen/user-screen.component';
 import { UserReportComponent } from './user-report/user-report.component';
+import { SessionDinamicaComponent } from './session-dinamica/session-dinamica.component';
+import { SessionBibliografiaComponent } from './session-bibliografia/session-bibliografia.component';
+import { SessionTestComponent } from './session-test/session-test.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +73,10 @@ import { UserReportComponent } from './user-report/user-report.component';
     CrumbsComponent,
     PreventDefaultDirective,
     UserReportComponent,
-    ModalContentComponent
+    ModalContentComponent,
+    SessionDinamicaComponent,
+    SessionBibliografiaComponent,
+    SessionTestComponent
   ],
   imports: [
     BrowserModule,
@@ -84,13 +96,19 @@ import { UserReportComponent } from './user-report/user-report.component';
     DocResolve, 
     ExamResolve, 
     PptResolve, 
-    VideoResolve, 
+    VideoResolve,
+    DinamicaResolve,
+    TestResolve,
+    BibliografiaResolve,
     DataService,
     PostExamAnswersService,
     UserreportfetchService,
     AuthGuardService,
     AllreportsFetchService,
-    AllusersFetchService
+    AllusersFetchService,
+    DinamicaFetchService,
+    TestFetchService,
+    BibliografiaFetchService
   ],
   bootstrap: [AppComponent],
   entryComponents: [UserReportComponent, ModalContentComponent]

@@ -42,7 +42,7 @@ export class SessionSlideshowComponent implements OnInit {
 	  		this.modnum = value;
 	  		
 	  	})
-		this.ppt = this.route.snapshot.data['ppt'];				
+		this.ppt = this.route.snapshot.data['ppt'];
 		this.initReveal( this.router);
 		
   	}

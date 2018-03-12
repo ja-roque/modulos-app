@@ -1,0 +1,10 @@
+<div class="reveal">
+	<div class="slides">
+		<section><h1 style="color: white;">Dinamica {{modnum}}</h1></section>		
+		<section *ngFor="let slide of dinamica">	      	
+				<img style="width: 100%" data-src="http://45.55.251.183/content/dinamicas/module_{{modnum}}/{{slide}}">
+	    </section>
+	    <!-- Empty slide for proper usage of LastSlide method from RevealJS -->
+	    <section><h1 style="color: white;"> </h1></section>
+	</div>
+</div>
