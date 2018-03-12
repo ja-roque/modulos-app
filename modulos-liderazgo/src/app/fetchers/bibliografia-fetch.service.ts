@@ -23,7 +23,7 @@ export class BibliografiaFetchService {
    response: {}
 
   getBibliografia (number) {
-  	var bibliografiaUrl = 'http://localhost:9001/getbibliografia?id=' + number;  // URL to web api
+  	var bibliografiaUrl = 'http://45.55.251.183/getbibliografia?id=' + number;  // URL to web api
   	return this.http.get(bibliografiaUrl)
   }
 

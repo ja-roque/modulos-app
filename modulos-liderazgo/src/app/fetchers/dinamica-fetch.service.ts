@@ -14,7 +14,7 @@ export class DinamicaFetchService {
    response: {}
 
   getDinamica (number) {
-  	var dinamicaUrl = 'http://localhost:9001/getdinamica?id=' + number;  // URL to web api
+  	var dinamicaUrl = 'http://45.55.251.183/getdinamica?id=' + number;  // URL to web api
   	return this.http.get(dinamicaUrl)
   }
 

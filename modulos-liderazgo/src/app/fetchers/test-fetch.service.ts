@@ -14,7 +14,7 @@ export class TestFetchService {
    response: {}
 
   getTest (number) {
-  	var testUrl = 'http://localhost:9001/gettest?id=' + number;  // URL to web api
+  	var testUrl = 'http://45.55.251.183/gettest?id=' + number;  // URL to web api
   	return this.http.get(testUrl)
   }
 
