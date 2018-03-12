@@ -1,10 +1,3 @@
-@Injectable()
-export class BibliografiaFetchService {
-
-  constructor() { }
-
-}
-
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
