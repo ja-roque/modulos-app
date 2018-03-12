@@ -211,6 +211,7 @@ export class UserScreenComponent implements OnInit {
 }
 
 
+
 @Component({
   selector: 'modal-content',
   templateUrl: '../user-report/user-report.component.html'
@@ -257,7 +258,7 @@ export class ModalContentComponent implements OnInit {
   numLabels = [1,2,3,4,5,6,7,8,9,10,11,12];
  
  		
-  constructor(public bsModalRef: BsModalRef, private reportFetch: UserreportfetchService, ) {}
+  constructor(public bsModalRef: BsModalRef, private reportFetch: UserreportfetchService, public appVars: AppComponent,) {}
 
 	getUserReport(): any {
 		return this.reportFetch.getUserReport();

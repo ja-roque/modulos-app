@@ -108,7 +108,8 @@ import { SessionTestComponent } from './session-test/session-test.component';
     AllusersFetchService,
     DinamicaFetchService,
     TestFetchService,
-    BibliografiaFetchService
+    BibliografiaFetchService,
+    AppComponent
   ],
   bootstrap: [AppComponent],
   entryComponents: [UserReportComponent, ModalContentComponent]
