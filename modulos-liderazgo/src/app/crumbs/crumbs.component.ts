@@ -11,10 +11,13 @@ import { NgClass } from '@angular/common';
 export class CrumbsComponent implements OnInit {
 
 crumbs = {
-		"presentation":true,
+		"presentation":false,
 		"doc":false,
 		"video":false,
-		"exam":false
+    "dinamica":false,
+		"exam":false,
+    "bibliografia":false,
+    "test":false
 	}
 
   constructor(private router: Router) { }
@@ -36,11 +39,35 @@ crumbs = {
   			break;
   		}
   		case 3:{
-  			this.router.navigate(['/reload'])
-    			.then(()=>{this.router.navigate(['/user/video'])});
-  			// code...
-  			break;
-  		}
+        this.router.navigate(['/reload'])
+          .then(()=>{this.router.navigate(['/user/video'])});
+        // code...
+        break;
+      }
+      case 4:{
+        this.router.navigate(['/reload'])
+          .then(()=>{this.router.navigate(['/user/dinamica'])});
+        // code...
+        break;
+      }  
+      case 5:{
+        this.router.navigate(['/reload'])
+          .then(()=>{this.router.navigate(['/user/exam'])});
+        // code...
+        break;
+      }
+      case 6:{
+        this.router.navigate(['/reload'])
+          .then(()=>{this.router.navigate(['/user/bibliografia'])});
+        // code...
+        break;
+      }
+      case 7:{
+        this.router.navigate(['/reload'])
+          .then(()=>{this.router.navigate(['/user/test'])});
+        // code...
+        break;
+      }
   		default:
   			this.router.navigate(['/reload'])
     			.then(()=>{this.router.navigate(['/user/exam'])});
@@ -53,16 +80,19 @@ crumbs = {
   ngOnInit() {
   	console.log("this.router.url",this.router.url);
   	switch (this.router.url) {
-  		case "/user/exam":
-  			this.crumbs.exam = true;
-  		case "/user/video":
-  			// code...
+      case "/user/test":
+        this.crumbs.test = true;
+      case "/user/bibliografia":
+        this.crumbs.bibliografia = true;
+      case "/user/exam":
+        this.crumbs.exam = true;
+  		case "/user/dinamica":
+  			this.crumbs.dinamica = true;
+  		case "/user/video":  		
   			this.crumbs.video = true;
   		case "/user/doc":
-  			// code...
   			this.crumbs.doc = true;
   		case "/user/presentation":
-  			// code...
   			this.crumbs.presentation = true;
   	}
 

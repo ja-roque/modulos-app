@@ -116,6 +116,11 @@
 	background: #337ab7;
 }
 
+div.scrollmenu {
+    background-color: #33333300;
+    overflow: auto;
+    white-space: nowrap;
+}
 
 
 

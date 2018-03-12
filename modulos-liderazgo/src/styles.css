@@ -17,6 +17,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
   .breadcrumb {
     position: relative;
     bottom: 50px;
+    width: 100vw !important;
+    display: flex !important;
   }
 
   .roundImg{
@@ -50,6 +52,42 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
     position: relative;
     bottom: 50px;
     width: 100vw !important;
+  }
+
+  .breadcrumb > div {
+    width: 95px !important;
+  }
+
+
+}
+@media (max-width: 767px) and (min-width: 500px) {
+  .bs-wizard{
+    bottom: 11vh !important;
+  } 
+}
+
+@media (max-width: 1024px) and (min-width: 500px) {
+  .bs-wizard{
+    overflow-x: auto;
+  }
+
+  .roundImg{
+    position: relative;
+    width: 50%;
+  }
+
+  .centeredStart {
+    bottom: 110% !important;
+  }
+
+  .reveal .controls {
+    bottom: 95px !important;
+  }
+
+  .breadcrumb {
+    display: flex !important;
+    position: relative;
+    
   }
 
   .breadcrumb > div {

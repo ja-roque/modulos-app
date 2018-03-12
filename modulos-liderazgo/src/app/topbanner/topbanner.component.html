@@ -17,7 +17,7 @@
 
 
 <div class="container-fluid topBar">
-	<div class="flex">
+	<div class="flex scrollmenu">
 	
 			
 
@@ -27,9 +27,11 @@
 			</h1>
 		</div>
 
-		<div class="f5 right flex" style="max-height: 70px">
+		<div class="f5 right flex scrollmenu" style="max-height: 70px;">
 			        
-            
+            	
+			  <button (click)="signOut()" type="button" class="btn btn-primary">Cerrar Sesion <div class="side-icon"><img class="glyphicon glyphicon-off" style="font-size: 35px;" src=""></div></button>
+
               <button (click)="openInfo(bibliografia)" type="button" class="btn btn-primary">Bibliografía <div class="side-icon"><img class="topbar-icon" src="assets/svg/faq.svg"></div></button>
             
             
@@ -156,56 +158,23 @@
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
-  <div class="modal-body" style="overflow-y: unset !important;">
-    <div id="web">
-    <div id="center-sphere">
-      <img style="position: absolute; top: 25%; width: 100%" 	 src="../../assets/imgs/elearning.png">
-
-
-    <div class="sphere two" >
-      <span class="text spiritual">Examen</span>
-       <p class="blurb">Deep v forage Thundercats selfies, shabby chic chillwave food truck fashion axe PBR&amp;B Etsy flannel High Life beard skateboard. Mixtape skateboard quinoa viral, bicycle rights tote bag Neutra Wes Anderson gentrify Tonx. </p>
-    </div>
-    <div class="sphere three" >
-      <span class="text emotion">Emotions</span>
-       <p class="blurb">Deep v forage Thundercats selfies, shabby chic chillwave food truck fashion axe PBR&amp;B Etsy flannel High Life beard skateboard. Mixtape skateboard quinoa viral, bicycle rights tote bag Neutra Wes Anderson gentrify Tonx. </p>
-    </div>
-    
-    <div class="sphere five" >
-      <span class="text hormone">Hormones</span>
-       <p class="blurb">Deep v forage Thundercats selfies, shabby chic chillwave food truck fashion axe PBR&amp;B Etsy flannel High Life beard skateboard. Mixtape skateboard quinoa viral, bicycle rights tote bag Neutra Wes Anderson gentrify Tonx. </p>
-    </div>
-    <div class="sphere six" >
-      <span class="text immune">Presentacion</span>
-       <p class="blurb">Deep v forage Thundercats selfies, shabby chic chillwave food truck fashion axe PBR&amp;B Etsy flannel High Life beard skateboard. Mixtape skateboard quinoa viral, bicycle rights tote bag Neutra Wes Anderson gentrify Tonx. </p>
-    </div>
-    <div class="sphere eight" >
-      <span class="text genes">Lectura</span>
-       <p class="blurb">Deep v forage Thundercats selfies, shabby chic chillwave food truck fashion axe PBR&amp;B Etsy flannel High Life beard skateboard. Mixtape skateboard quinoa viral, bicycle rights tote bag Neutra Wes Anderson gentrify Tonx. </p>
-    </div>
-    <div class="sphere nine" >
-      <span class="text toxin">Video</span>
-       <p class="blurb">Deep v forage Thundercats selfies, shabby chic chillwave food truck fashion axe PBR&amp;B Etsy flannel High Life beard skateboard. Mixtape skateboard quinoa viral, bicycle rights tote bag Neutra Wes Anderson gentrify Tonx. </p>
-    </div>
-     <div class="sphere ten">
-      <span class="text nutrient">Dinamica</span>
-        <p class="blurb">Deep v forage Thundercats selfies, shabby chic chillwave food truck fashion axe PBR&amp;B Etsy flannel High Life beard skateboard. Mixtape skateboard quinoa viral, bicycle rights tote bag Neutra Wes Anderson gentrify Tonx. </p>
-    </div>
-    </div> 
-    
-</div>
+  <div class="modal-body" >
+    <div id="web" style="text-align: center;">    
+    	<img style="max-width: 100%; max-width: 100%;height: 100%;display: inline-block;" src="../../assets/imgs/mapae360.png">
+	</div>
   </div>
 </ng-template>
 
 <ng-template #ayuda>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Modal</h4>
+    <h4 class="modal-title pull-left">Ayuda</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    Ayuda=.
+    <h4 style="text-align: center;">Favor de contactar al administrador de la plataforma via correo a <br>
+    carlos.suarez@intur.com con sus dudas o comentarios</h4>
   </div>
 </ng-template>
 

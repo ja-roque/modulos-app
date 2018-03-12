@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Hero } from '../hero';
-import { AppComponent } from '../app.component';
-import { BsModalService } from 'ngx-bootstrap/modal';
-import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { Component, OnInit }  from '@angular/core';
+import { Hero }   from '../hero';
+import { AppComponent }   from '../app.component';
+import { BsModalService }   from 'ngx-bootstrap/modal';
+import { BsModalRef }   from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { Router, Resolve, ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-topbanner',
@@ -13,9 +14,17 @@ export class TopbannerComponent implements OnInit {
   bsModalRef: BsModalRef;
 
   constructor(private appVars: AppComponent,
-              private modalService:   BsModalService ) { }
+              private modalService:   BsModalService,
+              private router:     Router, ) { }
 
   ngOnInit() {
+  }
+
+  
+
+  signOut(){
+    localStorage.removeItem('jwtToken');  
+    window.location.href = '/';
   }
 
   openInfo(template: any){
