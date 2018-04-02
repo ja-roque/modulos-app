@@ -129,7 +129,7 @@ export class SessionVideoComponent implements OnInit {
 	// event.previousSlide, event.currentSlide, event.indexh, event.indexv
 		if (Reveal.isLastSlide()) {
 			router.navigate(['/reload'])
-    			.then(()=>{router.navigate(['/user/dinamica']);			
+    			.then(()=>{router.navigate(['/user/dinamica'])});			
 		}
 		
 	});

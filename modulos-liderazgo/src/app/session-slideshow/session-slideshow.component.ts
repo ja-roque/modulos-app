@@ -56,7 +56,7 @@ export class SessionSlideshowComponent implements OnInit {
 
 		if (Reveal.isLastSlide()) {
 			router.navigate(['/reload'])
-    			.then(()=>{router.navigate(['/user/doc']);			
+    			.then(()=>{router.navigate(['/user/doc'])});			
 		}
 		
 	});

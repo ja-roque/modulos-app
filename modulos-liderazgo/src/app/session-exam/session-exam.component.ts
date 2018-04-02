@@ -209,7 +209,7 @@ export class SessionExamComponent implements OnInit {
 			/// Answers input from the user should be in => vars.examJSON
 			/// if one of the answers inside the'questions' array is NULL it means the user did not answer that question.
 			router.navigate(['/reload'])
-    			.then(()=>{router.navigate(['user/bibliografia'])
+    			.then(()=>{router.navigate(['user/bibliografia'])});
 		}
 		
 	});

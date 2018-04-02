@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, Resolve, RouterStateSnapshot,
          ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 import { DataService } from '../data.service';
+declare var Reveal:any;
 
 @Component({
   selector: 'app-session-bibliografia',
@@ -25,7 +26,7 @@ export class SessionBibliografiaComponent implements OnInit {
     Reveal.addEventListener( 'slidechanged', function( event ) {
       if (Reveal.isLastSlide()) {
         router.navigate(['/reload'])
-            .then(()=>{router.navigate(['/user/test']);      
+            .then(()=>{router.navigate(['/user/test'])});      
         }
 
       });
