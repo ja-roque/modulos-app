@@ -85,18 +85,13 @@ export class UserScreenComponent implements OnInit {
 			if (mayGotoMod) {
 				// code...
 				let num = this.modnum;
-				console.log({num, val});
 				this.data.changeSession(val);
-				console.log(this.modnum);
-				// this.router.navigate(['/user/presentation/?step=' + this.modnum]);
 
 				this.router.navigate(['/reload'])
 		    		.then(()=>{this.router.navigate(['/user/presentation'])})
 			}
 		})				
-			// Reveal.configure({viewDistance: 3});
-			// console.log(Reveal)
-		}
+	}
 
 
 
@@ -104,10 +99,10 @@ export class UserScreenComponent implements OnInit {
 
   	this.data.currentSession.subscribe(value => this.modnum = value)
 
-  	this.getModules(this.modnum).subscribe(data => {      
-			// This method is ran on the on-init to make sure that there a start and end date on user end.
-			console.log('yup, it ran', data)
-	});
+ 	//  this.getModules(this.modnum).subscribe(data => {      
+	// 		// This method is ran on the on-init to make sure that there is a start and end date on user end.
+	// 		console.log('yup, it ran', data)
+	// });
 
 	Reveal.initialize({// The "normal" size of the presentation, aspect ratio will be preserved
 			// when the presentation is scaled to fit different resolutions
@@ -138,7 +133,7 @@ export class UserScreenComponent implements OnInit {
 			keyboard: true,
 
 			// Enable the slide overview mode
-			overview: true,
+			overview: false,
 
 			// Vertical centering of slides
 			center: true,

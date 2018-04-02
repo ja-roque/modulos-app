@@ -10,16 +10,25 @@ import { DataService } from '../data.service';
 })
 export class SessionDinamicaComponent implements OnInit {
 
-  constructor( private route: ActivatedRoute, private data: DataService) { }
+  constructor( private route: ActivatedRoute, private data: DataService, private router: Router) { }
   dinamica: {}
   modnum: {}
   ngOnInit() {
   	this.data.currentSession.subscribe(value => {
 	  		this.modnum = value;	  		
-	  	})
+  	})
 
   	this.dinamica = this.route.snapshot.data['dinamica'];
-  	console.log(this.dinamica)
+    this.initReveal(this.router);
   }
 
-}
+  initReveal(router): void {
+    Reveal.addEventListener( 'slidechanged', function( event ) {
+      if (Reveal.isLastSlide()) {
+        router.navigate(['/reload'])
+            .then(()=>{router.navigate(['/user/exam']);      
+        }
+
+      });
+    }
+  }

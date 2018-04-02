@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 html {
-
+height: unset !important;
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,2989d8+16,207cca+70,128ae5+100 */
 background: #1e5799; /* Old browsers */
 background: -moz-linear-gradient(-45deg, #1e5799 0%, #2989d8 16%, #207cca 70%, #128ae5 100%); /* FF3.6-15 */
@@ -95,6 +95,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
   }
 
 
+}
+
+.slides{
+  top: 45% !important;
+}
+
+.reveal p{
+  line-height: 1.2 !important;
 }
 
 .topBar{
