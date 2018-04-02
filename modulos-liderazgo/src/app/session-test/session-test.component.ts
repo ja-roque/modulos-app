@@ -17,8 +17,7 @@ export class SessionTestComponent implements OnInit {
   	this.data.currentSession.subscribe(value => {
 	  		this.modnum = value;	  		
 	  	})
-  	this.test = this.route.snapshot.data['test'];
-  	console.log(this.test)
+  	this.test = this.route.snapshot.data['test'];  	
 
   }
 

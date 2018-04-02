@@ -59,7 +59,7 @@ export class SessionVideoComponent implements OnInit {
 			keyboard: true,
 
 			// Enable the slide overview mode
-			overview: true,
+			overview: false,
 
 			// Vertical centering of slides
 			center: true,
@@ -128,8 +128,8 @@ export class SessionVideoComponent implements OnInit {
 	Reveal.addEventListener( 'slidechanged', function( event ) {
 	// event.previousSlide, event.currentSlide, event.indexh, event.indexv
 		if (Reveal.isLastSlide()) {
-			// code...
-			router.navigate(['/user/exam']);			
+			router.navigate(['/reload'])
+    			.then(()=>{router.navigate(['/user/dinamica'])});			
 		}
 		
 	});

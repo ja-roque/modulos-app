@@ -24,22 +24,17 @@ export class SessionDocComponent implements OnInit {
 
 	ngOnInit() {
 		this.doc = this.route.snapshot.data['doc'];
-		console.log(this.doc)
-		console.log(Reveal)
-		// Reveal.initialize();
-  // // 		this.getDocs().subscribe(data => {      
-		// // 	this.doc = data
-		// // 	console.log(this.doc)
-			Reveal.initialize()
-			this.initReveal(this.router);
-		// });  	
+
+		Reveal.initialize()
+		this.initReveal(this.router);
   	}
 
 	initReveal(router): void {
-		Reveal.initialize({// The "normal" size of the presentation, aspect ratio will be preserved
+		Reveal.initialize({
+			// The "normal" size of the presentation, aspect ratio will be preserved
 			// when the presentation is scaled to fit different resolutions
 			width: 960,
-			height: 700,
+			height: 700,			
 
 			// Factor of the display size that should remain empty around the content
 			margin: 0.1,
@@ -65,7 +60,7 @@ export class SessionDocComponent implements OnInit {
 			keyboard: true,
 
 			// Enable the slide overview mode
-			overview: true,
+			overview: false,
 
 			// Vertical centering of slides
 			center: true,
@@ -134,8 +129,9 @@ export class SessionDocComponent implements OnInit {
 	Reveal.addEventListener( 'slidechanged', function( event ) {
 	// event.previousSlide, event.currentSlide, event.indexh, event.indexv
 		if (Reveal.isLastSlide()) {
-			// code...
-			router.navigate(['/user/video']);		
+			
+			router.navigate(['/reload'])
+    			.then(()=>{router.navigate(['/user/video'])});			
 		}
 		
 	});

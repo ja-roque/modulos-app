@@ -77,8 +77,7 @@ crumbs = {
   	
   }
 
-  ngOnInit() {
-  	console.log("this.router.url",this.router.url);
+  ngOnInit() {  	
   	switch (this.router.url) {
       case "/user/test":
         this.crumbs.test = true;
@@ -95,8 +94,6 @@ crumbs = {
   		case "/user/presentation":
   			this.crumbs.presentation = true;
   	}
-
-  	console.log(this.crumbs);
   }
 
 }
