@@ -14,7 +14,7 @@
         <div class="navbar-collapse collapse sidebar-navbar-collapse" style="height: 3000px">
         	<div>
         		<div style="width: 100%">
-        			<img class="roundHeadLogoRel" src="../../assets/imgs/Logo Lacthosa.png">
+        			<img class="roundHeadLogoRel" src="http://45.55.251.183/content/logos/{{appVars.company}}.png">
         		</div>
         	</div>
           <ul class="nav navbar-nav">
@@ -23,7 +23,7 @@
               <div class="list-group" style="overflow-y: scroll; height: 400px">
                 
 
-                <button *ngFor="let user of users; let uNum = index" type="button" data-toggle="dropdown" class="availableModules list-group-item list-group-item-action dropdown-toggle" (click)="goToGraph(1)">{{user.firstname}} {{user.lastname}}</button>
+                <button *ngFor="let user of users; let uNum = index" type="button" data-toggle="dropdown" class="availableModules list-group-item list-group-item-action dropdown-toggle" (click)="goToGraph(user.userID)">{{user.firstname}} {{user.lastname}}</button>
                 <!-- <ul class="dropdown-menu" style="left: 5%; width: 90%;">
                 <li><a href="#">Presentacion</a></li>
                 <li><a href="#">Lectura</a></li>

@@ -37,6 +37,7 @@ export class SessionExamComponent implements OnInit {
 		// This function appends each question number, correct answer and its respective  user answer while user is taking the exam.
 		// "ca" stands for Correct Answer
 		// "ua" stands for User Answer		
+		console.log(this.exam, 'This is the first exam gotten')
 		this.examJSON.questions[num] = {'ua':answer, 'ca': parseInt(this.exam.questions[num][2])};
 	} 
 
@@ -196,7 +197,7 @@ export class SessionExamComponent implements OnInit {
 			let userAnswers: any[]  = []
 			$(':radio:checked').each(function(){
 			   
-			userAnswers.unshift( $(this).val() )			
+			userAnswers.push( $(this).val() )			
 
 			// With this Jquery loop we make sure all of the selected values are sent.
 			for(var num = 0; LEN > num; num++){
@@ -204,6 +205,7 @@ export class SessionExamComponent implements OnInit {
 			}			   
 			   
 			});
+			console.log(vars.examJSON, 'this is the final parsed exam')
 			vars.calcResult(vars.examJSON);
 			
 			/// Answers input from the user should be in => vars.examJSON

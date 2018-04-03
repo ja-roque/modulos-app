@@ -66,7 +66,7 @@ export class UserScreenComponent implements OnInit {
 	    this.bsModalRef = this.modalService.show(ModalContentComponent, Object.assign({initialState}, config, { class: 'gray clearfix' }));
 	    this.bsModalRef.content.closeBtnName = 'Close';	
 	    console.log(this.bsModalRef)
-	  }
+	}
 	
 
 	goTo(val) {
@@ -262,7 +262,7 @@ export class ModalContentComponent implements OnInit {
 	ngOnInit() {
 
 		this.getUserReport().subscribe(data => {      		
-			console.log(data)
+			
 			this.radarData 			= data.reporte.scoresList
 			this.barEvolucionData 	= data.reporte.scoresList
 			this.barDiasData		= data.reporte.elapsedDaysList
@@ -276,152 +276,152 @@ export class ModalContentComponent implements OnInit {
 			this.anos				= data.perfil.expYears
 		
 
-	  	this.radar = new Chart('radar', {
-		        type: 'radar',
-		        data: {
-		            labels: this.labels,
-		            datasets: [{
-		                data: this.radarData,
-		                label: 'Calificaciones por Modulo',
-		                backgroundColor: '#00ff1a96',
-		                borderColor: 'rgb(17, 255, 73)',
-		                lineTension: .1,
-		                pointRadius: 10,
-		                pointHitRadius: 10
+		  	this.radar = new Chart('radar', {
+			        type: 'radar',
+			        data: {
+			            labels: this.labels,
+			            datasets: [{
+			                data: this.radarData,
+			                label: 'Calificaciones por Modulo',
+			                backgroundColor: '#00ff1a96',
+			                borderColor: 'rgb(17, 255, 73)',
+			                lineTension: .1,
+			                pointRadius: 10,
+			                pointHitRadius: 10
 
-		            }]
-		        }, 
-		         options: {
-				    scale: {
-				        ticks: {
-				            // changes here
-				            max: 100
-				        }
-				    }
-				}       
-		});
+			            }]
+			        }, 
+			         options: {
+					    scale: {
+					        ticks: {
+					            // changes here
+					            max: 100
+					        }
+					    }
+					}       
+			});
 
-	  	this.barEvolucion = new Chart('barEvolucion',{
-	  			type: 'bar',
-	                data: {
-	   	  				labels: this.numLabels,
-	                 	options: {
-	        				legend: {
-					            labels: {
-					                // This more specific font property overrides the global property
-					                fontColor: 'white'
-					            }
-	        				}
-						},
-		            	datasets: [{                
-		                label: '%',
-		                backgroundColor: '#0d4c92',
-		                borderColor: '#7A0047',
-		                borderWidth: 1,
-		                data: this.barEvolucionData
-		            	}]
-	   				},
-	                options: {
-	                	scales: {
-					        yAxes: [{
-					            ticks: {
-					            	suggestedMax: 100,
-					                beginAtZero: true
-					            }
-					        }]
-					    },
-	                    responsive: true,
-	                    legend: {
-	                        position: 'top',
-	                    },
-	                    title: {
-	                        display: true,
-	                        text: 'Evolución por Módulos'
-	                    }
-	                }
-	  	});
+		  	this.barEvolucion = new Chart('barEvolucion',{
+		  			type: 'bar',
+		                data: {
+		   	  				labels: this.numLabels,
+		                 	options: {
+		        				legend: {
+						            labels: {
+						                // This more specific font property overrides the global property
+						                fontColor: 'white'
+						            }
+		        				}
+							},
+			            	datasets: [{                
+			                label: '%',
+			                backgroundColor: '#0d4c92',
+			                borderColor: '#7A0047',
+			                borderWidth: 1,
+			                data: this.barEvolucionData
+			            	}]
+		   				},
+		                options: {
+		                	scales: {
+						        yAxes: [{
+						            ticks: {
+						            	suggestedMax: 100,
+						                beginAtZero: true
+						            }
+						        }]
+						    },
+		                    responsive: true,
+		                    legend: {
+		                        position: 'top',
+		                    },
+		                    title: {
+		                        display: true,
+		                        text: 'Evolución por Módulos'
+		                    }
+		                }
+		  	});
 
-	  	this.barDias = new Chart('barDias',{
-	  			type: 'bar',
-	                data: {
-	   	  				labels: this.numLabels,
-	                 	options: {
-	        				legend: {
-	            				labels: {
-					                // This more specific font property overrides the global property
-					                fontColor: 'white'
-					            }
-	        				}
-	    				},
-		            	datasets: [{                
-		                label: 'Días',
-		                backgroundColor: '#0d4c92',
-		                borderColor: '#7A0047',
-		                borderWidth: 1,
-		                data: this.barDiasData
-		            	}]
-	   				},
-	                options: {
-	                	scales: {
-					        yAxes: [{
-					            ticks: {
-					            	suggestedMax: 20,
-					                beginAtZero: true
-					            }
-					        }]
-					    },
-	                    responsive: true,
-	                    legend: {
-	                        position: 'top',
-	                    },
-	                    title: {
-	                        display: true,
-	                        text: 'Días usados para cerrar modulo'
-	                    }
-	                }
-	  	});
+		  	this.barDias = new Chart('barDias',{
+		  			type: 'bar',
+		                data: {
+		   	  				labels: this.numLabels,
+		                 	options: {
+		        				legend: {
+		            				labels: {
+						                // This more specific font property overrides the global property
+						                fontColor: 'white'
+						            }
+		        				}
+		    				},
+			            	datasets: [{                
+			                label: 'Días',
+			                backgroundColor: '#0d4c92',
+			                borderColor: '#7A0047',
+			                borderWidth: 1,
+			                data: this.barDiasData
+			            	}]
+		   				},
+		                options: {
+		                	scales: {
+						        yAxes: [{
+						            ticks: {
+						            	suggestedMax: 20,
+						                beginAtZero: true
+						            }
+						        }]
+						    },
+		                    responsive: true,
+		                    legend: {
+		                        position: 'top',
+		                    },
+		                    title: {
+		                        display: true,
+		                        text: 'Días usados para cerrar modulo'
+		                    }
+		                }
+		  	});
 
-	  	this.barIntentos = new Chart('barIntentos',{
-	  			type: 'bar',
-	                data: {
-	   	  				labels: this.numLabels,
-	                 	options: {
-	        				legend: {
-	            				labels: {
-	 				               // This more specific font property overrides the global property
-	                				fontColor: 'white'
-	            				}
-	        				}
-	    				},
-		           		datasets: [{                
-		                label: 'Intentos',
-		                backgroundColor: '#0d4c92',
-		                borderColor: '#7A0047',
-		                borderWidth: 1,
-		                data: this.barIntentosData
-		            	}]
-	   				},
-	                options: {
-	                	scales: {
-					        yAxes: [{
-					            ticks: {
-					            	suggestedMax: 20,
-					                beginAtZero: true
-					            }
-					        }]
-					    },
-	                    responsive: true,
-	                    legend: {
-	                        position: 'top',
-	                    },
-	                    title: {
-	                        display: true,
-	                        text: 'Veces realizado el examen hasta aprobar'
-	                    }
-	                }
-	  	});
+		  	this.barIntentos = new Chart('barIntentos',{
+		  			type: 'bar',
+		                data: {
+		   	  				labels: this.numLabels,
+		                 	options: {
+		        				legend: {
+		            				labels: {
+		 				               // This more specific font property overrides the global property
+		                				fontColor: 'white'
+		            				}
+		        				}
+		    				},
+			           		datasets: [{                
+			                label: 'Intentos',
+			                backgroundColor: '#0d4c92',
+			                borderColor: '#7A0047',
+			                borderWidth: 1,
+			                data: this.barIntentosData
+			            	}]
+		   				},
+		                options: {
+		                	scales: {
+						        yAxes: [{
+						            ticks: {
+						            	suggestedMax: 20,
+						                beginAtZero: true
+						            }
+						        }]
+						    },
+		                    responsive: true,
+		                    legend: {
+		                        position: 'top',
+		                    },
+		                    title: {
+		                        display: true,
+		                        text: 'Veces realizado el examen hasta aprobar'
+		                    }
+		                }
+		  	});
 
-	  	console.log(this.radar)
+		  	console.log(this.radar)
 
 		});
   	}
