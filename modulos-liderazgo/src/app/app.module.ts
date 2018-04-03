@@ -48,6 +48,7 @@ import { SessionExamComponent } from './session-exam/session-exam.component';
 import * as axios from 'axios';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { SessionGraphsComponent } from './session-graphs/session-graphs.component';
+import { AdminModalContentComponent } from './admin-screen/admin-screen.component';
 import { AdminScreenComponent } from './admin-screen/admin-screen.component';
 import { CrumbsComponent } from './crumbs/crumbs.component';
 import { PreventDefaultDirective } from './prevent-default.directive';
@@ -74,6 +75,7 @@ import { SessionTestComponent } from './session-test/session-test.component';
     PreventDefaultDirective,
     UserReportComponent,
     ModalContentComponent,
+    AdminModalContentComponent,
     SessionDinamicaComponent,
     SessionBibliografiaComponent,
     SessionTestComponent
@@ -109,10 +111,11 @@ import { SessionTestComponent } from './session-test/session-test.component';
     DinamicaFetchService,
     TestFetchService,
     BibliografiaFetchService,
+    AdminScreenComponent,
     AppComponent
   ],
   bootstrap: [AppComponent],
-  entryComponents: [UserReportComponent, ModalContentComponent]
+  entryComponents: [UserReportComponent,AdminModalContentComponent, ModalContentComponent]
 })
 export class AppModule { }
 

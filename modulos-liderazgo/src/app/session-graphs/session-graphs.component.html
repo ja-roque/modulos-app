@@ -1,6 +1,6 @@
 <div style="z-index: 5">
 	
-		<div style="position: absolute; width:100%; margin:auto; top: 50%;   transform: translateY(-50%); display: block;">
+<!-- 		<div style="position: absolute; width:100%; margin:auto; top: 50%;   transform: translateY(-50%); display: block;">
 			<canvas id="canvas">{{chart}}</canvas>
 		</div>
 
@@ -10,6 +10,31 @@
 
 		<div style="position: absolute; width:100%; margin:auto; width:100%; margin:auto; top: 50%;   transform: translateY(-50%); display: none;">
 			<canvas id="radar">{{radar}}</canvas>
+		</div> -->
+	<div class="row ">
+
+    		<div class="col-lg-10 col-lg-offset-1 col-md-12 col-sm-12 col-xs-12">
+    			<div style="width:100%; margin:auto;">
+					<canvas id="AllRadar">{{AllRadar}}</canvas>
+				</div>
+    		</div>
+    	</div>
+
+    	<div class="row">
+	    		<div class="col-lg-4 col-md-4 col-sm-12">
+	    			<div style="width: 100%; margin: auto;" >
+						<canvas id="AllBarEvolucion">{{AllBarEvolucion}}</canvas>
+					</div>
+	    		</div>
+	    		<div class="col-lg-4 col-md-4 col-sm-12">
+	    			<div style="width: 100%; margin: auto;" >
+						<canvas id="AllBarDias">{{AllBarDias}}</canvas>
+					</div>
+	    		</div>
+	    		<div class="col-lg-4 col-md-4 col-sm-12">
+	    			<div style="width: 100%; margin: auto;" >
+						<canvas id="AllBarIntentos">{{AllBarIntentos}}</canvas>
+					</div>
+	    		</div>
 		</div>
-	
 </div>
