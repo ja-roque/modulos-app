@@ -2,9 +2,17 @@
 	<div class="slides">
 		<section><h1 style="color: white;">Sesion {{modnum}}</h1></section>
 		<section><h1 style="color: white;">Presentacion {{modnum}}</h1></section>
-		<section *ngFor="let slide of ppt">	      	
-				<img style="width: 100%" data-src="http://45.55.251.183/content/presentations/module_{{modnum}}/{{slide}}">
-	    </section>
+		<section *ngFor="let slide of ppt">
+
+				<img style="width: 100%" data-src="http://45.55.251.183/content/presentations/module_{{modnum}}/{{slide.slide}}">
+				<section *ngIf="slide.link !=='' " style="z-index: 1;
+				    position: absolute;
+				    left: 50%;				    
+				    transform: translateX(-50%);
+				    height: 100%; width: 100%;
+				" ><iframe style="height: 100%; width: 100%" [src]="slide.link" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			    </section>
+	    </section>	    
 	    <!-- Empty slide for proper usage of LastSlide method from RevealJS -->
 	    <section><h1 style="color: white;"> </h1></section>
 	</div>

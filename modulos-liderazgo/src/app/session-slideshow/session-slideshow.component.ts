@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 import { PresentationfetchService } from '../presentationfetch.service';
 import { DataService } from '../data.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {DomSanitizer} from '@angular/platform-browser';
 import { Router, Resolve, RouterStateSnapshot,
          ActivatedRouteSnapshot, ActivatedRoute } from '@angular/router';
 
@@ -15,10 +16,10 @@ declare var Reveal:any;
 export class SessionSlideshowComponent implements OnInit {
 
 
-  constructor(private pptFetch: PresentationfetchService, private route: ActivatedRoute, private router: Router, private data: DataService) { }
+  constructor(private pptFetch: PresentationfetchService, private route: ActivatedRoute, private router: Router, private data: DataService, public sanitizer: DomSanitizer ) { }
 
   private _flag;
-  ppt: {}
+  ppt: [{'slide': string, 'link': any}]
   modnum = 1
 
   @Input() 
@@ -43,6 +44,11 @@ export class SessionSlideshowComponent implements OnInit {
 	  		
 	  	})
 		this.ppt = this.route.snapshot.data['ppt'];
+
+		// The following loop is necessary to convert normal url strings (videos) into sanitized URL objects.
+		for(var index = 0; index < this.ppt.length; index++){			
+			this.ppt[index].link = this.sanitizer.bypassSecurityTrustResourceUrl(this.ppt[index].link)		
+		}
 		this.initReveal( this.router);
 		
   	}
