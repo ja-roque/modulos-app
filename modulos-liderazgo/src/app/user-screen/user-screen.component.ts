@@ -99,10 +99,10 @@ export class UserScreenComponent implements OnInit {
 
   	this.data.currentSession.subscribe(value => this.modnum = value)
 
- 	//  this.getModules(this.modnum).subscribe(data => {      
-	// 		// This method is ran on the on-init to make sure that there is a start and end date on user end.
-	// 		console.log('yup, it ran', data)
-	// });
+ 	 this.getModules(this.modnum).subscribe(data => {      
+			// This method is ran on the on-init to make sure that there is a start and end date on user end.
+			console.log('yup, it ran', data)
+	});
 
 	Reveal.initialize({// The "normal" size of the presentation, aspect ratio will be preserved
 			// when the presentation is scaled to fit different resolutions
