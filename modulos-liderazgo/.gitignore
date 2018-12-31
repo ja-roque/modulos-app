@@ -37,6 +37,11 @@ testem.log
 /e2e/*.js
 /e2e/*.map
 
+# Virtual envs
+env/
+env3/
+
 # System Files
-.DS_Store
-Thumbs.db
+*.DS_Store
+*Thumbs.db
+__pycache__/
